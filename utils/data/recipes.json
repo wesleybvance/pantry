@@ -1,0 +1,32 @@
+{
+  "-NPQpmnEjldjBtWW-1vz": {
+    "description": "Sample recipe description sample recipe 1",
+    "firebaseKey": "8219c087-46b3-41ad-bd43-9da1baf51b72",
+    "instructions": "sample recipe instructions sample recipe 1 instructions",
+    "isPublic": true,
+    "name": "Sample Recipe 1",
+    "photo": "http://dummyimage.com/135x100.png/dddddd/000000",
+    "recipeId": " -NPQpmnEjldjBtWW-1vz",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2"
+  },
+  "-NPQpmnNCcz_WGaEfOWh": {
+    "description": "Sample recipe 2 description sample recipe 2",
+    "firebaseKey": "6e92cb55-fdb6-4036-a9b1-356a2a770d94",
+    "instructions": "sample recipe 2 instructions sample recipe 2",
+    "isPublic": true,
+    "name": "Sample Recipe 2",
+    "photo": "http://dummyimage.com/231x100.png/dddddd/000000",
+    "recipeId": " -NPQpmnNCcz_WGaEfOWh",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2"
+  },
+  "-NPQpmnbucWZ2xE9y_rW": {
+    "description": "Sample recipe 3 description for sample recipe 3",
+    "firebaseKey": "436b0fe2-ad2e-45a5-9f91-8fe11991b1b5",
+    "instructions": "sample recipe 3 instructions for sample recipe 3",
+    "isPublic": true,
+    "name": "Sample Recipe 3",
+    "photo": "http://dummyimage.com/155x100.png/5fa2dd/ffffff",
+    "recipeId": "-NPQpmnbucWZ2xE9y_rW",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2"
+  }
+}

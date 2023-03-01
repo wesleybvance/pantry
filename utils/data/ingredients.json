@@ -1,0 +1,92 @@
+{
+  "-NPQqLjhhJ1lgjUITWAM": {
+    "amount": 95,
+    "firebaseKey": "-NPQqLjhhJ1lgjUITWAM",
+    "id": "9040",
+    "name": "banana",
+    "photo": "http://dummyimage.com/215x100.png/5fa2dd/ffffff",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2",
+    "unit": "grams"
+  },
+  "-NPQqLjkKbA6TM9oh3pw": {
+    "amount": 400,
+    "firebaseKey": "-NPQqLjkKbA6TM9oh3pw",
+    "id": "20081",
+    "name": "wheat flour",
+    "photo": "http://dummyimage.com/127x100.png/ff4444/ffffff",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2",
+    "unit": "grams"
+  },
+  "-NPQqLjoIVui2clfdVtm": {
+    "amount": 880,
+    "firebaseKey": "-NPQqLjoIVui2clfdVtm",
+    "id": "19335",
+    "name": "sugar",
+    "photo": "http://dummyimage.com/191x100.png/dddddd/000000",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2",
+    "unit": "grams"
+  },
+  "-NPQqLjrk-LJAMikMyv-": {
+    "amount": 10,
+    "firebaseKey": "-NPQqLjrk-LJAMikMyv-",
+    "id": "19296",
+    "name": "honey",
+    "photo": "http://dummyimage.com/199x100.png/ff4444/ffffff",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2",
+    "unit": "ounces"
+  },
+  "-NPQqLjueKFMYwFIt7_c": {
+    "amount": 182,
+    "firebaseKey": " -NPQqLjueKFMYwFIt7_c",
+    "id": "10018079",
+    "name": "sapien",
+    "photo": "http://dummyimage.com/140x100.png/ff4444/ffffff",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2",
+    "unit": "grams"
+  },
+  "-NPQqLjxgJCFNkr8CSMr": {
+    "amount": 18,
+    "firebaseKey": "-NPQqLjxgJCFNkr8CSMr",
+    "id": "4058",
+    "name": "sesame oil",
+    "photo": "http://dummyimage.com/143x100.png/5fa2dd/ffffff",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2",
+    "unit": "ounces"
+  },
+  "-NPQqLk-DIYvRg6fvmTy": {
+    "amount": 700,
+    "firebaseKey": "-NPQqLk-DIYvRg6fvmTy",
+    "id": "20409",
+    "name": "egg noodles",
+    "photo": "http://dummyimage.com/234x100.png/5fa2dd/ffffff",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2",
+    "unit": "grams"
+  },
+  "-NPQqLk3bfGaH2shhLS9": {
+    "amount": 50,
+    "firebaseKey": "-NPQqLk3bfGaH2shhLS9",
+    "id": "4053",
+    "name": "olive oil",
+    "photo": "http://dummyimage.com/101x100.png/cc0000/ffffff",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2",
+    "unit": "ounces"
+  },
+  "-NPQqLk6tl2zQ7koxMcI": {
+    "amount": 7,
+    "firebaseKey": " -NPQqLk6tl2zQ7koxMcI",
+    "id": "1123",
+    "name": "egg",
+    "photo": "http://dummyimage.com/224x100.png/cc0000/ffffff",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2",
+    "unit": ""
+  },
+  "-NPQqLk9hV9tUmWFncAg": {
+    "amount": 70,
+    "firebaseKey": "-NPQqLk9hV9tUmWFncAg",
+    "id": "1001",
+    "name": "butter",
+    "photo": "http://dummyimage.com/102x100.png/5fa2dd/ffffff",
+    "uid": "oR9dhBK3auZDedstEcez4QgyIaK2",
+    "unit": "ounces"
+  }
+}
