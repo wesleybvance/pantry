@@ -1,0 +1,92 @@
+{
+  "-NPQqTKyaP2Fs39kLsTv": {
+    "amount": 12,
+    "firebaseKey": " -NPQqTKyaP2Fs39kLsTv",
+    "id": "10123",
+    "name": "bacon",
+    "photo": "http://dummyimage.com/204x100.png/5fa2dd/ffffff",
+    "recipeId": " -NPQpmnEjldjBtWW-1vz",
+    "unit": "ounces"
+  },
+  "-NPQqTL-2iMPvbsU44EJ": {
+    "amount": 30,
+    "firebaseKey": "-NPQqTL-2iMPvbsU44EJ",
+    "id": "1001",
+    "name": "butter",
+    "photo": "http://dummyimage.com/248x100.png/5fa2dd/ffffff",
+    "recipeId": " -NPQpmnEjldjBtWW-1vz",
+    "unit": "ounces"
+  },
+  "-NPQqTL2A-5xIzXajN3b": {
+    "amount": 7,
+    "firebaseKey": "-NPQqTL2A-5xIzXajN3b",
+    "id": "9316",
+    "name": "strawberries",
+    "photo": "http://dummyimage.com/158x100.png/cc0000/ffffff",
+    "recipeId": " -NPQpmnEjldjBtWW-1vz",
+    "unit": "ounces"
+  },
+  "-NPQqTL5fdR-ryxlEmkq": {
+    "amount": 6,
+    "firebaseKey": "-NPQqTL5fdR-ryxlEmkq",
+    "id": "6172",
+    "name": "chicken stock",
+    "photo": "http://dummyimage.com/249x100.png/cc0000/ffffff",
+    "recipeId": " -NPQpmnEjldjBtWW-1vz",
+    "unit": "ounces"
+  },
+  "-NPQqTL7arwK4JA8dJYH": {
+    "amount": 2,
+    "firebaseKey": "-NPQqTL7arwK4JA8dJYH",
+    "id": "1123",
+    "name": "egg",
+    "photo": "http://dummyimage.com/170x100.png/ff4444/ffffff",
+    "recipeId": " -NPQpmnNCcz_WGaEfOWh",
+    "unit": ""
+  },
+  "-NPQqTLA9C8dWNFNmetU": {
+    "amount": 5,
+    "firebaseKey": "-NPQqTLA9C8dWNFNmetU",
+    "id": "1015006",
+    "name": "chicken meat",
+    "photo": "http://dummyimage.com/108x100.png/ff4444/ffffff",
+    "recipeId": " -NPQpmnNCcz_WGaEfOWh",
+    "unit": "ounces"
+  },
+  "-NPQqTLClTYYdLRmFLSJ": {
+    "amount": 8,
+    "firebaseKey": "-NPQqTLClTYYdLRmFLSJ",
+    "id": "1077",
+    "name": "milk",
+    "photo": "http://dummyimage.com/120x100.png/cc0000/ffffff",
+    "recipeId": " -NPQpmnNCcz_WGaEfOWh",
+    "unit": "ounces"
+  },
+  "-NPQqTLFHo8AzmC5_3CU": {
+    "amount": 5,
+    "firebaseKey": " -NPQqTLFHo8AzmC5_3CU",
+    "id": "42289",
+    "name": "corn oil",
+    "photo": "http://dummyimage.com/245x100.png/5fa2dd/ffffff",
+    "recipeId": "-NPQpmnbucWZ2xE9y_rW",
+    "unit": "ounces"
+  },
+  "-NPQqTLHrAeFz__-TiqO": {
+    "amount": 8,
+    "firebaseKey": "-NPQqTLHrAeFz__-TiqO",
+    "id": "99027",
+    "name": "lo mein noodles",
+    "photo": "http://dummyimage.com/192x100.png/dddddd/000000",
+    "recipeId": "-NPQpmnbucWZ2xE9y_rW",
+    "unit": "ounces"
+  },
+  "-NPQqTLJSl4L002BxeOP": {
+    "amount": 10,
+    "firebaseKey": "-NPQqTLJSl4L002BxeOP",
+    "id": "1019",
+    "name": "feta cheese",
+    "photo": "http://dummyimage.com/246x100.png/cc0000/ffffff",
+    "recipeId": "-NPQpmnbucWZ2xE9y_rW",
+    "unit": "grams"
+  }
+}
