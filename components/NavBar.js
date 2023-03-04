@@ -1,12 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Image } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
 import { useAuth } from '../utils/context/authContext';
+import NewIngredient from './NewIngredient';
 
 export default function NavBar() {
   const { user } = useAuth();
+  const [showIngredientModal, setShowIngredientModal] = useState(false);
+
+  const handleClick = () => {
+    setShowIngredientModal(true);
+  };
+
+  const handleCloseBtn = () => {
+    setShowIngredientModal(false);
+  };
 
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -23,11 +33,8 @@ export default function NavBar() {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <Link passHref href="/ingredients/new">
-                <a className="nav-link">
-                  +
-                </a>
-              </Link>
+              <a href="#" onClick={handleClick}>add ingredient</a>
+              {showIngredientModal && <NewIngredient handleClose={handleCloseBtn} />}
             </li>
             <li className="nav-item">
               <Link passHref href="/pantry">
