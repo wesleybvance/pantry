@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import getSpoonIngredients from '../api/recipeIngredientsData';
-import IngredientSelect from './IngredientSelectOptions';
+import IngredientSelectOptions from './IngredientSelectOptions';
 
 export default function SelectIngredient() {
   const [searchInput, setSearchInput] = useState('');
@@ -34,7 +34,7 @@ export default function SelectIngredient() {
       <Form.Select aria-label="Default select example">
         {/* <option>Open this select menu</option> */}
         {searchResults.map((obj) => (
-          <IngredientSelect key={obj.name} ingredientObj={obj} onUpdate={getSearchResults} />
+          <IngredientSelectOptions key={obj.name} ingredientObj={obj} onUpdate={getSearchResults} />
         ))}
       </Form.Select>
     </div>
