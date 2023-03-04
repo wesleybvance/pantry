@@ -1,3 +1,4 @@
+import SelectIngredient from '../components/SelectIngredient';
 import { signOut } from '../utils/auth';
 import { useAuth } from '../utils/context/authContext';
 
@@ -19,6 +20,7 @@ function Home() {
       <button className="btn btn-danger btn-lg copy-btn" type="button" onClick={signOut}>
         Sign Out
       </button>
+      <SelectIngredient />
     </div>
   );
 }

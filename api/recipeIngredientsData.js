@@ -1,8 +1,8 @@
-import { clientCredentials } from "../utils/client";
+import { clientCredentials } from '../utils/client';
 
 const spoon = clientCredentials.spoonApiKey;
 
-const getIngredients = (searchInput) => new Promise((resolve, reject) => {
+const getSpoonIngredients = (searchInput) => new Promise((resolve, reject) => {
   fetch(`https://api.spoonacular.com/food/ingredients/search?query=${searchInput}&apiKey=${spoon}`, {
     method: 'GET',
     headers: {
@@ -20,4 +20,4 @@ const getIngredients = (searchInput) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default getIngredients; 
+export default getSpoonIngredients;
