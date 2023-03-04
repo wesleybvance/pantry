@@ -1,15 +1,29 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { Image } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
+import { useAuth } from '../utils/context/authContext';
+import NewIngredient from './NewIngredient';
 
 export default function NavBar() {
+  const { user } = useAuth();
+  const [showIngredientModal, setShowIngredientModal] = useState(false);
+
+  const handleClick = () => {
+    setShowIngredientModal(true);
+  };
+
+  const handleCloseBtn = () => {
+    setShowIngredientModal(false);
+  };
+
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container-fluid">
         <Link passHref href="/">
           <a className="navbar-brand" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
-            CHANGE ME
+            Pantry
           </a>
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,15 +33,31 @@ export default function NavBar() {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <Link passHref href="/">
+              <a href="#" onClick={handleClick}>add ingredient</a>
+              {showIngredientModal && <NewIngredient handleClose={handleCloseBtn} />}
+            </li>
+            <li className="nav-item">
+              <Link passHref href="/pantry">
                 <a className="nav-link">
-                  Home
+                  my pantry
                 </a>
               </Link>
             </li>
-            <button type="button" className="btn btn-danger" onClick={signOut}>
-              Sign Out
-            </button>
+            <li className="nav-item">
+              <Link passHref href="/recipes/new">
+                <a className="nav-link">
+                  +
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link passHref href="/recipes">
+                <a className="nav-link">
+                  my recipes
+                </a>
+              </Link>
+            </li>
+            <Image src={user.photoURL} alt="signOut" onClick={signOut} />
           </ul>
         </div>
       </div>
