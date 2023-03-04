@@ -34,7 +34,7 @@ export default function NavBar() {
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
               <a href="#" onClick={handleClick}>add ingredient</a>
-              {showIngredientModal && <NewIngredient handleClose={handleCloseBtn} />}
+              <NewIngredient show={showIngredientModal} handleClose={handleCloseBtn} />
             </li>
             <li className="nav-item">
               <Link passHref href="/pantry">
