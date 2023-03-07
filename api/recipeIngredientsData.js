@@ -51,7 +51,18 @@ const getSingleRecipeIngredient = (firebaseKey) => new Promise((resolve, reject)
     .catch(reject);
 });
 
-const updateRecipeIngredient
+const updateRecipeIngredient = (payload) => new Promise ((resolve, reject) => {
+  fetch(`${dbUrl}/recipeIngredients/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+  .then((response) => response.json())
+  .then(resolve)
+  .catch(reject);
+});
 
 const createRecipeIngredient
 
