@@ -51,7 +51,7 @@ const getSingleRecipeIngredient = (firebaseKey) => new Promise((resolve, reject)
     .catch(reject);
 });
 
-const updateRecipeIngredient = (payload) => new Promise ((resolve, reject) => {
+const updateRecipeIngredient = (payload) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/recipeIngredients/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
@@ -59,16 +59,41 @@ const updateRecipeIngredient = (payload) => new Promise ((resolve, reject) => {
     },
     body: JSON.stringify(payload),
   })
-  .then((response) => response.json())
-  .then(resolve)
-  .catch(reject);
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
 });
 
-const createRecipeIngredient
+const createRecipeIngredient = (payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/recipeIngredients.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
 
-const deleteRecipeIngredient 
+const deleteRecipeIngredient = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/recipeIngredients/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
 
 export {
   getSpoonIngredients,
   getRecipeIngredientsByRecipeID,
+  updateRecipeIngredient,
+  deleteRecipeIngredient,
+  createRecipeIngredient,
+  getSingleRecipeIngredient,
 };
