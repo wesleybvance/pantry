@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import { useAuth } from '../utils/context/authContext';
+import deleteRecipeAndIngredients from '../api/mergedData';
 
 export default function RecipeCard({ recipeObj, onUpdate }) {
   const { user } = useAuth();
