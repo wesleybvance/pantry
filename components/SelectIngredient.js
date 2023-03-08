@@ -15,13 +15,6 @@ export default function SelectIngredient() {
     getSpoonIngredients(searchInput);
   };
 
-  // useEffect(() => {
-  //   getSearchResults();
-  //   return () => {
-  //     setSearchResults([]);
-  //   };
-  // }, [searchInput]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchInput !== '') getSpoonIngredients(searchInput).then((data) => data[0]).then(setSearchResults);
