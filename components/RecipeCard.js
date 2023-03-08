@@ -22,7 +22,7 @@ export default function RecipeCard({ recipeObj, onUpdate }) {
         <Card.Text>
           {recipeObj.description}
         </Card.Text>
-        {recipeObj.uid === user.uid ? (<Button variant="primary" onClick={deleteRecipeCard} />) : ''}
+        {recipeObj.uid === user.uid ? (<Button variant="primary" onClick={deleteRecipeCard}>Delete</Button>) : ''}
       </Card.Body>
     </Card>
   );

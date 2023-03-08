@@ -1,5 +1,5 @@
-import { deleteRecipe } from './recipeData';
-import { deleteRecipeIngredient, getRecipeIngredientsByRecipeID } from './recipeIngredientsData';
+import { deleteRecipe, getSingleRecipe } from './recipeData';
+import { deleteRecipeIngredient, getRecipeIngredientsByRecipeID, getSingleRecipeIngredient } from './recipeIngredientsData';
 
 const deleteRecipeAndIngredients = (recipeId) => new Promise((resolve, reject) => {
   getRecipeIngredientsByRecipeID(recipeId).then((ingredientsArray) => {
@@ -11,4 +11,22 @@ const deleteRecipeAndIngredients = (recipeId) => new Promise((resolve, reject) =
   }).catch((error) => reject(error));
 });
 
-export default deleteRecipeAndIngredients;
+const viewRecipeDetails = (firebaseKey) => new Promise((resolve, reject) => {
+  getSingleRecipe(firebaseKey).then((recipe) => {
+    getRecipeIngredientsByRecipeID(recipe.firebaseKey)
+      .then((recipeIngredients) => resolve({ ...recipe, recipeIngredients }));
+  }).catch(reject);
+});
+
+const viewRecipeIngredientDetails = (firebaseKey) => new Promise((resolve, reject) => {
+  getSingleRecipeIngredient(firebaseKey).then((recipeIngredient) => {
+    getSingleRecipe(recipeIngredient.recipeId)
+      .then((RIData) => resolve({ ...recipeIngredient, RIData }));
+  }).catch(reject);
+});
+
+export {
+  deleteRecipeAndIngredients,
+  viewRecipeDetails,
+  viewRecipeIngredientDetails,
+};
