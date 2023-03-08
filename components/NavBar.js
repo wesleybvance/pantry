@@ -33,7 +33,7 @@ export default function NavBar() {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <a href="#" onClick={handleClick}>add ingredient</a>
+              <a href="#" className="nav-link" onClick={handleClick}>+</a>
               <NewIngredient show={showIngredientModal} handleClose={handleCloseBtn} />
             </li>
             <li className="nav-item">
