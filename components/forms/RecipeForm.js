@@ -35,13 +35,13 @@ export default function RecipeForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateRecipe(formInput)
-        .then(() => router.push('/recipes/user'));
+        .then(() => router.replace('/recipes/user'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createRecipe(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateRecipe(patchPayload).then(() => {
-          router.push('/recipes/user');
+          router.replace('/recipes/user');
         });
       });
     }
