@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import getSpoonIngredients from '../api/recipeIngredientsData';
+import { getSpoonIngredients } from '../api/recipeIngredientsData';
 import IngredientSelectOptions from './IngredientSelectOptions';
 
 export default function SelectIngredient() {

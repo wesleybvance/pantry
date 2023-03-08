@@ -90,10 +90,10 @@ const deleteRecipeIngredient = (firebaseKey) => new Promise((resolve, reject) =>
 });
 
 export {
-  getSpoonIngredients,
   getRecipeIngredientsByRecipeID,
   updateRecipeIngredient,
   deleteRecipeIngredient,
   createRecipeIngredient,
   getSingleRecipeIngredient,
+  getSpoonIngredients,
 };
