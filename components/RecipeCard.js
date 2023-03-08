@@ -3,14 +3,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
+import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
-import deleteRecipeAndIngredients from '../api/mergedData';
+import { deleteRecipeIngredients } from '../api/mergedData';
 
 export default function RecipeCard({ recipeObj, onUpdate }) {
   const { user } = useAuth();
   const deleteRecipeCard = () => {
     if (window.confirm(`Delete ${recipeObj.name}?`)) {
-      deleteRecipeAndIngredients(recipeObj.firebaseKey).then(() => onUpdate());
+      deleteRecipeIngredients(recipeObj.firebaseKey).then(() => onUpdate());
     }
   };
 
@@ -23,6 +24,7 @@ export default function RecipeCard({ recipeObj, onUpdate }) {
           {recipeObj.description}
         </Card.Text>
         {recipeObj.uid === user.uid ? (<Button variant="primary" onClick={deleteRecipeCard}>Delete</Button>) : ''}
+        {recipeObj.uid === user.uid ? (<Link passHref href={`recipes/edit/${recipeObj.firebaseKey}`}><Button variant="primary">Edit</Button></Link>) : ''}
       </Card.Body>
     </Card>
   );

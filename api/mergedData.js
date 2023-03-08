@@ -1,12 +1,12 @@
 import { deleteRecipe, getSingleRecipe } from './recipeData';
 import { deleteRecipeIngredient, getRecipeIngredientsByRecipeID, getSingleRecipeIngredient } from './recipeIngredientsData';
 
-const deleteRecipeAndIngredients = (recipeId) => new Promise((resolve, reject) => {
-  getRecipeIngredientsByRecipeID(recipeId).then((ingredientsArray) => {
+const deleteRecipeIngredients = (firebaseKey) => new Promise((resolve, reject) => {
+  getRecipeIngredientsByRecipeID(firebaseKey).then((ingredientsArray) => {
     const deleteIngredientPromises = ingredientsArray.map((ingredient) => deleteRecipeIngredient(ingredient.firebaseKey));
 
     Promise.all(deleteIngredientPromises).then(() => {
-      deleteRecipe(recipeId).then(resolve);
+      deleteRecipe(firebaseKey).then(resolve);
     });
   }).catch((error) => reject(error));
 });
@@ -26,7 +26,7 @@ const viewRecipeIngredientDetails = (firebaseKey) => new Promise((resolve, rejec
 });
 
 export {
-  deleteRecipeAndIngredients,
+  deleteRecipeIngredients,
   viewRecipeDetails,
   viewRecipeIngredientDetails,
 };

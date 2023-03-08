@@ -35,13 +35,13 @@ export default function RecipeForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateRecipe(formInput)
-        .then(() => router.push(`/recipes/${obj.firebaseKey}`));
+        .then(() => router.push('/recipes/user'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createRecipe(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateRecipe(patchPayload).then(() => {
-          router.push(`/recipes/${user.uid}`);
+          router.push('/recipes/user');
         });
       });
     }
@@ -85,6 +85,22 @@ export default function RecipeForm({ obj }) {
             required
           />
         </FloatingLabel>
+        <div className="">Instructions</div>
+        <FloatingLabel
+          controlId="floatingInput2"
+          label="Recipe Instructions"
+          className="mb-3"
+        >
+          <Form.Control
+            type="text"
+            placeholder="Instructions"
+            style={{ height: '100px' }}
+            name="instructions"
+            value={formInput.instructions}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
         <div className="">Recipe Image URL</div>
         <FloatingLabel
           controlId="floatingInput3"
@@ -94,8 +110,8 @@ export default function RecipeForm({ obj }) {
           <Form.Control
             type="url"
             placeholder="Recipe Image URL"
-            name="image"
-            value={formInput.image}
+            name="photo"
+            value={formInput.photo}
             onChange={handleChange}
             required
           />
