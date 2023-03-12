@@ -38,12 +38,26 @@ body {
   width: 500px;
 }
 
+/* INGREDIENT CARD BUTTON DIV  */
 .ing-btn {
   display: flex;
   flex-direction: column;
 }
 
+/* INGREDIENT CARD IMAGE  */
 .ing-img {
   height: 100px;
   width: 100px;
+}
+
+/* RECIPE PAGE CONTAINER  */
+.recipe-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* RECIPE PAGE PHOTO/INGREDIENTS DIV  */
+.photo-ing-cont {
+  display: flex;
+  flex-direction: column;
 }
