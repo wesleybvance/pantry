@@ -12,9 +12,9 @@ export default function IngredientCard({ ingredientObj, onUpdate }) {
 
   return (
     <Card>
-      <div className="ingredientCard">
+      <div className="ingredient-info">
         <div>
-          <Card.Img src={ingredientObj.photo} />
+          <Card.Img className="ing-img" src={ingredientObj.photo} />
         </div>
         <div>
           <Card.Body>
@@ -24,7 +24,7 @@ export default function IngredientCard({ ingredientObj, onUpdate }) {
             </Card.Text>
           </Card.Body>
         </div>
-        <div>
+        <div className="ing-btn">
           <Button variant="primary">Edit</Button>
           <Button variant="primary" onClick={deleteIngredientCard}>Delete</Button>
         </div>

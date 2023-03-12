@@ -20,3 +20,30 @@ a {
 body {
   background-color: #88effd;
 }
+
+/* CONTAINER WITH SCROLL FOR INGREDIENT CARDS  */
+.ingredient-container {
+  display: flex;
+  flex-direction: column; 
+  height: 500px;
+  width: 520px;
+  overflow-y: scroll;
+}
+
+/* CONTAINER WITH INGREDIENT DETAILS  */
+.ingredient-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+}
+
+.ing-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.ing-img {
+  height: 100px;
+  width: 100px;
+}

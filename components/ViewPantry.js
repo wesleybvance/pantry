@@ -19,7 +19,7 @@ export default function ViewPantry() {
 
   return (
     <div>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap ingredient-container">
         {/* MAP OVER RECIPE CARDS - RECIPECARD COMPONENT */}
         {ingredients.map((ingredient) => (
           <IngredientCard key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllIngredients} />
