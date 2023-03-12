@@ -19,7 +19,7 @@ export default function RecipeCard({ recipeObj, onUpdate }) {
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={recipeObj.photo} />
       <Card.Body>
-        <Card.Title>{recipeObj.name}</Card.Title>
+        <Link passHref href={`recipes/${recipeObj.firebaseKey}`}><Card.Title>{recipeObj.name}</Card.Title></Link>
         <Card.Text>
           {recipeObj.description}
         </Card.Text>
