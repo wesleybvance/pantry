@@ -9,6 +9,11 @@ import NewIngredient from './NewIngredient';
 export default function NavBar() {
   const { user } = useAuth();
   const [showIngredientModal, setShowIngredientModal] = useState(false);
+  const signOutNavBar = () => {
+    if (window.confirm('Are you sure you want to sign out?')) {
+      signOut();
+    }
+  };
 
   const handleClick = () => {
     setShowIngredientModal(true);
@@ -57,7 +62,9 @@ export default function NavBar() {
                 </a>
               </Link>
             </li>
-            <Image src={user.photoURL} alt="signOut" onClick={signOut} />
+            <div className="flexp">
+              <Image className="profnavbar" src={user.photoURL} alt="signOut" onClick={signOutNavBar} />
+            </div>
           </ul>
         </div>
       </div>
