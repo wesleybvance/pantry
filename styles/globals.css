@@ -20,15 +20,3 @@ a {
 body {
   background-color: #88effd;
 }
-
-/* RESUSABLE CLASS FOR FLEX PROPERTIES */
-.flexp {
-  display: flex;
-  text-align: left;
-}
-
-.profnavbar {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px 25px 25px 25px;
-}
