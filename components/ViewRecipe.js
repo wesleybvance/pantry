@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getSingleRecipe } from '../api/recipeData';
+import RecipeIngredients from './RecipeIngredients';
 
 export default function ViewRecipe({ firebaseKey }) {
   const [recipeInfo, setRecipeInfo] = useState({});
@@ -16,7 +17,7 @@ export default function ViewRecipe({ firebaseKey }) {
       <div className="recipe-container">
         <div className="photo-ing-cont">
           <img src={recipeInfo.photo} width="500px" alt="recipePhoto" />
-          {/* call view recipe ingredients component here  */}
+          <RecipeIngredients key={firebaseKey} firebaseKey={firebaseKey} />
         </div>
         <div className="recipe-instructions">
           {recipeInfo.instructions}
@@ -27,14 +28,5 @@ export default function ViewRecipe({ firebaseKey }) {
 }
 
 ViewRecipe.propTypes = {
-  recipeObj: PropTypes.shape({
-    firebaseKey: PropTypes.string,
-    uid: PropTypes.string,
-    name: PropTypes.string,
-    description: PropTypes.string,
-    instructions: PropTypes.string,
-    photo: PropTypes.string,
-    isPublic: PropTypes.bool,
-  }).isRequired,
   firebaseKey: PropTypes.string.isRequired,
 };
