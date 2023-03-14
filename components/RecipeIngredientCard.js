@@ -1,8 +1,18 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
+import { useAuth } from '../utils/context/authContext';
+import { getSingleRecipe } from '../api/recipeData';
 
 export default function RecipeIngredientCard({ ingredientObj }) {
+  const [recipe, setRecipe] = useState({});
+  const { user } = useAuth();
+
+  useEffect(() => {
+    getSingleRecipe(ingredientObj.recipeId).then((recipeObj) => setRecipe(recipeObj));
+  }, [ingredientObj]);
+
   return (
     <Card>
       <div className="ingredient-info">
@@ -17,6 +27,12 @@ export default function RecipeIngredientCard({ ingredientObj }) {
             </Card.Text>
           </Card.Body>
         </div>
+        {recipe.uid === user.uid ? (
+          <div className="ing-btn">
+            <Button variant="primary">Edit</Button>
+            <Button variant="primary">Delete</Button>
+          </div>
+        ) : ''}
       </div>
     </Card>
   );

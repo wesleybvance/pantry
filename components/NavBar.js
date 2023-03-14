@@ -63,7 +63,7 @@ export default function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link passHref href="/recipes">
+              <Link passHref href="/recipes/user">
                 <a className="nav-link">
                   my recipes
                 </a>
