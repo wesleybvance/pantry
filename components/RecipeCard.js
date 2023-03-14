@@ -22,12 +22,12 @@ export default function RecipeCard({ recipeObj, onUpdate }) {
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={recipeObj.photo} />
       <Card.Body>
-        <Link passHref href={`recipes/${recipeObj.firebaseKey}`}><Card.Title>{recipeObj.name}</Card.Title></Link>
+        <Card.Title><Button variant="black" onClick={(e) => router.replace(`/recipes/${recipeObj.firebaseKey}`)}>{recipeObj.name}</Button></Card.Title>
         <Card.Text>
           {recipeObj.description}
         </Card.Text>
-        {recipeObj.uid === user.uid ? (<Button variant="primary" onClick={deleteRecipeCard}>Delete</Button>) : ''}
-        {recipeObj.uid === user.uid ? (<Button onClick={(e) => router.replace(`/recipes/edit/${recipeObj.firebaseKey}`)} variant="primary">Edit</Button>) : ''}
+        {recipeObj.uid === user.uid ? (<Button variant="danger" onClick={deleteRecipeCard}>Delete</Button>) : ''}
+        {recipeObj.uid === user.uid ? (<Button onClick={(e) => router.replace(`/recipes/edit/${recipeObj.firebaseKey}`)} variant="dark">Edit</Button>) : ''}
       </Card.Body>
     </Card>
   );
