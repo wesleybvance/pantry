@@ -21,6 +21,18 @@ const getSpoonIngredients = (searchInput) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getSpoonIngredient = (ingredientId, amount, unit) => new Promise((resolve, reject) => {
+  fetch(`https://api.spoonacular.com/food/ingredients/${ingredientId}/information?amount=${amount}&unit=${unit}&apiKey=${spoon}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 const getRecipeIngredientsByRecipeID = (recipeId) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/recipeIngredients.json?orderBy="recipeId"&equalTo="${recipeId}"`, {
     method: 'GET',
@@ -96,4 +108,5 @@ export {
   createRecipeIngredient,
   getSingleRecipeIngredient,
   getSpoonIngredients,
+  getSpoonIngredient,
 };

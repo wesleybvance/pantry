@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import SelectIngredient from './SelectIngredient';
+import IngredientForm from './forms/IngredientForm';
 
 // NEW INGREDIENT MODAL - includes AddIngredientForm, Search/Select Ingredient from Spoonacular Component
 export default function NewIngredient({ handleClose, show }) {
+  const [ingredientId, setIngredientId] = useState(0);
+  const handleIngredientId = (id) => {
+    setIngredientId(id);
+  };
+
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Search Ingredients</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <SelectIngredient />
+          <SelectIngredient handleIngredientId={handleIngredientId} />
+          <IngredientForm select={ingredientId} />
         </Modal.Body>
 
         <Modal.Footer>
