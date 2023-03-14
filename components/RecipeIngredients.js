@@ -11,21 +11,26 @@ export default function RecipeIngredients() {
   const user = useAuth();
   const router = useRouter();
   const { firebaseKey } = router.query;
-  useEffect(() => {
-    viewRecipeDetails(firebaseKey).then(setRecipeDetails);
-  }, [firebaseKey]);
+
+  const getAllRecipeDetails = () => {
+    viewRecipeDetails(firebaseKey).then((recipeObj) => setRecipeDetails(recipeObj));
+  };
 
   const getAllRecipeIngredients = () => {
     getRecipeIngredientsByRecipeID(firebaseKey);
   };
 
-  console.warn(recipeDetails);
+  useEffect(() => {
+    getAllRecipeDetails(firebaseKey);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [firebaseKey]);
+
   if (user.uid === recipeDetails.uid) {
     return (
       <div>
         <div className="d-flex flex-wrap ingredient-container">
           {recipeDetails.recipeIngredients?.map((ingredient) => (
-            <RecipeIngredientCardUser key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllRecipeIngredients} />
+            <RecipeIngredientCardUser key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllRecipeDetails} />
           ))}
         </div>
       </div>
