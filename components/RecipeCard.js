@@ -1,14 +1,17 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useAuth } from '../utils/context/authContext';
 import { deleteRecipeIngredients } from '../api/mergedData';
 
 export default function RecipeCard({ recipeObj, onUpdate }) {
   const { user } = useAuth();
+  const router = useRouter();
   const deleteRecipeCard = () => {
     if (window.confirm(`Delete ${recipeObj.name}?`)) {
       deleteRecipeIngredients(recipeObj.firebaseKey).then(() => onUpdate());
@@ -24,7 +27,7 @@ export default function RecipeCard({ recipeObj, onUpdate }) {
           {recipeObj.description}
         </Card.Text>
         {recipeObj.uid === user.uid ? (<Button variant="primary" onClick={deleteRecipeCard}>Delete</Button>) : ''}
-        {recipeObj.uid === user.uid ? (<Link passHref href={`recipes/edit/${recipeObj.firebaseKey}`}><Button variant="primary">Edit</Button></Link>) : ''}
+        {recipeObj.uid === user.uid ? (<Button onClick={(e) => router.replace(`/recipes/edit/${recipeObj.firebaseKey}`)} variant="primary">Edit</Button>) : ''}
       </Card.Body>
     </Card>
   );

@@ -7,12 +7,11 @@ import { getSingleRecipe } from '../api/recipeData';
 
 export default function RecipeIngredientCard({ ingredientObj }) {
   const [recipe, setRecipe] = useState({});
-  const { firebaseKey } = ingredientObj.recipeId;
-  const user = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
-    getSingleRecipe(firebaseKey).then((recipeObj) => setRecipe(recipeObj));
-  }, [user]);
+    getSingleRecipe(ingredientObj.recipeId).then((recipeObj) => setRecipe(recipeObj));
+  }, [ingredientObj]);
 
   return (
     <Card>
