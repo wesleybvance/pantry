@@ -24,9 +24,10 @@ export default function IngredientForm({ obj, select, handleClose }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (obj.firebaseKey) {
+    if (obj.firebaseKey && select) {
       setFormInput(obj);
-    } else if (select) setIngredientSelect(select);
+      setIngredientSelect(select);
+    } if (select) setIngredientSelect(select);
   }, [obj, select, user]);
 
   const handleChange = (e) => {
@@ -40,6 +41,8 @@ export default function IngredientForm({ obj, select, handleClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
+      formInput.amount = Number(formInput.amount);
+      console.warn(formInput);
       updateIngredient(formInput);
     } else {
       getSpoonIngredient(ingredientSelect, formInput.amount, formInput.unit).then((data) => {
@@ -66,6 +69,15 @@ export default function IngredientForm({ obj, select, handleClose }) {
     <div className="board-form-container">
       <Form onSubmit={handleSubmit} className="text-color-drkblu">
         <div className="mt-5" />
+        {obj.firebaseKey ? (
+          <><Form.Control
+            type="text"
+            placeholder={formInput.name}
+            aria-label="Disabled input example"
+            readOnly
+          /><br />
+          </>
+        ) : ''}
         <FloatingLabel
           controlId="floatingInput1"
           label="Amount"

@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import SelectIngredient from './SelectIngredient';
 import IngredientForm from './forms/IngredientForm';
 
 // NEW INGREDIENT MODAL - includes AddIngredientForm, Search/Select Ingredient from Spoonacular Component
 export default function EditIngredient({ ingObj, handleClose, show }) {
-  const [ingredientId, setIngredientId] = useState(0);
-  const handleIngredientId = (id) => {
-    setIngredientId(id);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     handleClose();
@@ -21,17 +14,14 @@ export default function EditIngredient({ ingObj, handleClose, show }) {
     <Modal show={show} onHide={handleClose}>
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Search Ingredients</Modal.Title>
+          <Modal.Title>Edit Ingredient</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <SelectIngredient handleIngredientId={handleIngredientId} selection={ingObj} />
-          <IngredientForm handleClose={handleSubmit} obj={ingObj} select={ingredientId} />
+          <IngredientForm handleClose={handleSubmit} obj={ingObj} select={ingObj.id} />
         </Modal.Body>
 
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>Close</Button>
-        </Modal.Footer>
+        <Modal.Footer />
       </Modal.Dialog>
     </Modal>
   );
