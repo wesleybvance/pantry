@@ -69,6 +69,15 @@ export default function IngredientForm({ obj, select, handleClose }) {
     <div className="board-form-container">
       <Form onSubmit={handleSubmit} className="text-color-drkblu">
         <div className="mt-5" />
+        {obj.firebaseKey ? (
+          <><Form.Control
+            type="text"
+            placeholder={formInput.name}
+            aria-label="Disabled input example"
+            readOnly
+          /><br />
+          </>
+        ) : ''}
         <FloatingLabel
           controlId="floatingInput1"
           label="Amount"
