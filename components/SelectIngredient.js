@@ -4,7 +4,15 @@ import { Form } from 'react-bootstrap';
 import { getSpoonIngredients } from '../api/recipeIngredientsData';
 import IngredientSelectOptions from './IngredientSelectOptions';
 
-export default function SelectIngredient({ handleIngredientId }) {
+const initialStateS = {
+  name: '',
+  amount: 0,
+  id: 0,
+  photo: '',
+  unit: '',
+};
+
+export default function SelectIngredient({ handleIngredientId, selection }) {
   const [searchInput, setSearchInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [selectedValue, setSelectedValue] = useState(0);
@@ -20,6 +28,10 @@ export default function SelectIngredient({ handleIngredientId }) {
   };
 
   useEffect(() => {
+    if (selection) {
+      setSelectedValue(selection.id);
+      setSearchInput(selection.name);
+    }
     handleIngredientId(selectedValue);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedValue]);
@@ -53,4 +65,17 @@ export default function SelectIngredient({ handleIngredientId }) {
 
 SelectIngredient.propTypes = {
   handleIngredientId: PropTypes.func.isRequired,
+  selection: PropTypes.shape({
+    name: PropTypes.string,
+    amount: PropTypes.number,
+    firebaseKey: PropTypes.string,
+    id: PropTypes.number,
+    photo: PropTypes.string,
+    uid: PropTypes.string,
+    unit: PropTypes.string,
+  }),
+};
+
+SelectIngredient.defaultProps = {
+  selection: initialStateS,
 };
