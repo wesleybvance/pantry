@@ -17,15 +17,16 @@ const initialState = {
   unit: '',
 };
 
-export default function IngredientForm({ obj, select }) {
+export default function IngredientForm({ obj, select, handleClose }) {
   const [formInput, setFormInput] = useState(initialState);
   const [ingredientSelect, setIngredientSelect] = useState(0);
   const { user } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);
-    if (select) setIngredientSelect(select);
+    if (obj.firebaseKey) {
+      setFormInput(obj);
+    } else if (select) setIngredientSelect(select);
   }, [obj, select, user]);
 
   const handleChange = (e) => {
@@ -39,7 +40,7 @@ export default function IngredientForm({ obj, select }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      console.warn('still need to set up update ingredient/etc.');
+      updateIngredient(formInput);
     } else {
       getSpoonIngredient(ingredientSelect, formInput.amount, formInput.unit).then((data) => {
         const payload = {
@@ -55,20 +56,9 @@ export default function IngredientForm({ obj, select }) {
           updateIngredient(patchPayload);
         }).then(() => {
           router.replace('/pantry');
+          handleClose();
         });
       });
-
-      // const payload = {
-      //   ...formInput,
-      //   uid: user.uid,
-      //   id: ingredientSelect,
-      // };
-      // createIngredient(payload).then(({ name }) => {
-      //   const patchPayload = { firebaseKey: name };
-      //   updateIngredient(patchPayload).then(() => {
-      //     router.replace('/pantry');
-      //   });
-      // });
     }
   };
 
@@ -85,12 +75,18 @@ export default function IngredientForm({ obj, select }) {
             type="number"
             placeholder="Amount"
             name="amount"
-            value={formInput.amount}
+            value={Number(formInput.amount)}
             onChange={handleChange}
             required
           />
         </FloatingLabel>
-        <Form.Select aria-label="Default select example" onChange={handleChange} required>
+        <Form.Select
+          aria-label="Default select example"
+          onChange={handleChange}
+          name="unit"
+          value={formInput.unit}
+          required
+        >
           <option>SELECT UNIT</option>
           <option value="">none</option>
           <option value="grams">grams</option>
@@ -114,6 +110,7 @@ IngredientForm.propTypes = {
     unit: PropTypes.string,
   }),
   select: PropTypes.number.isRequired,
+  handleClose: PropTypes.func.isRequired,
 };
 
 IngredientForm.defaultProps = {
