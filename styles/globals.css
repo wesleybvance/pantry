@@ -24,9 +24,10 @@ body {
 /* CONTAINER WITH SCROLL FOR INGREDIENT CARDS  */
 .ingredient-container {
   display: flex;
-  flex-direction: column; 
-  height: 500px;
-  width: 520px;
+  flex-direction: column;
+  flex-wrap: nowrap; 
+  height: 700px;
+  max-width: 520px;
   overflow-y: scroll;
 }
 

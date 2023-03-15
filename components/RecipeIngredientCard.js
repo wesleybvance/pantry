@@ -46,6 +46,6 @@ RecipeIngredientCard.propTypes = {
     photo: PropTypes.string,
     unit: PropTypes.string,
     recipeId: PropTypes.string,
-    id: PropTypes.string,
+    id: PropTypes.number,
   }).isRequired,
 };

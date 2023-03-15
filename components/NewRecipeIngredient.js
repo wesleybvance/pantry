@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import SelectIngredient from './SelectIngredient';
-import IngredientForm from './forms/IngredientForm';
+import RecipeIngredientForm from './forms/RecipeIngredientForm';
 
 // NEW INGREDIENT MODAL - includes AddIngredientForm, Search/Select Ingredient from Spoonacular Component
-export default function NewIngredient({ handleClose, show }) {
+export default function NewRecipeIngredient({ handleClose, show }) {
   const [ingredientId, setIngredientId] = useState(0);
   const handleIngredientId = (id) => {
     setIngredientId(id);
@@ -21,12 +21,12 @@ export default function NewIngredient({ handleClose, show }) {
     <Modal show={show} onHide={handleClose}>
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Search Ingredients For Pantry</Modal.Title>
+          <Modal.Title>Search Ingredients For Recipe</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
           <SelectIngredient handleIngredientId={handleIngredientId} />
-          <IngredientForm select={ingredientId} handleClose={handleSubmit} />
+          <RecipeIngredientForm select={ingredientId} handleClose={handleSubmit} />
         </Modal.Body>
 
         <Modal.Footer>
@@ -38,7 +38,7 @@ export default function NewIngredient({ handleClose, show }) {
   );
 }
 
-NewIngredient.propTypes = {
+NewRecipeIngredient.propTypes = {
   handleClose: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
 };
