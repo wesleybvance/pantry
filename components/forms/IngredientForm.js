@@ -24,9 +24,10 @@ export default function IngredientForm({ obj, select, handleClose }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (obj.firebaseKey) {
+    if (obj.firebaseKey && select) {
       setFormInput(obj);
-    } else if (select) setIngredientSelect(select);
+      setIngredientSelect(select);
+    } if (select) setIngredientSelect(select);
   }, [obj, select, user]);
 
   const handleChange = (e) => {
@@ -40,6 +41,8 @@ export default function IngredientForm({ obj, select, handleClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
+      formInput.amount = Number(formInput.amount);
+      console.warn(formInput);
       updateIngredient(formInput);
     } else {
       getSpoonIngredient(ingredientSelect, formInput.amount, formInput.unit).then((data) => {
