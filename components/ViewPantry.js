@@ -15,7 +15,7 @@ export default function ViewPantry() {
   useEffect(() => {
     getAllIngredients();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [ingredients]);
 
   return (
     <div>

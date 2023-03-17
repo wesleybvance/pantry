@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import SelectIngredient from './SelectIngredient';
 import RecipeIngredientForm from './forms/RecipeIngredientForm';
@@ -12,27 +11,25 @@ export default function NewRecipeIngredient({ handleClose, show }) {
     setIngredientId(id);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmitClose = () => {
     handleClose();
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} onSubmit={handleSubmit}>
       <Modal.Dialog>
         <Modal.Header closeButton>
           <Modal.Title>Search Ingredients For Recipe</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <SelectIngredient handleIngredientId={handleIngredientId} />
-          <RecipeIngredientForm select={ingredientId} handleClose={handleSubmit} />
+          <SelectIngredient handleIngredientId={handleIngredientId} onSubmit={handleSubmit} />
+          <RecipeIngredientForm select={ingredientId} handleClose={handleSubmitClose} onSubmit={handleSubmit} />
         </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>Close</Button>
-          <Button variant="primary">Save changes</Button>
-        </Modal.Footer>
       </Modal.Dialog>
     </Modal>
   );

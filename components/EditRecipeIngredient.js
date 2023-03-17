@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-bootstrap/Modal';
-import IngredientForm from './forms/IngredientForm';
+import RecipeIngredientForm from './forms/RecipeIngredientForm';
 
 // EDIT INGREDIENT MODAL - includes AddIngredientForm, Search/Select Ingredient from Spoonacular Component
-export default function EditIngredient({ ingObj, handleClose, show }) {
+export default function EditRecipeIngredient({ ingObj, handleClose, show }) {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -17,25 +17,25 @@ export default function EditIngredient({ ingObj, handleClose, show }) {
     <Modal show={show} onHide={handleClose}>
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Ingredient</Modal.Title>
+          <Modal.Title>Edit Recipe Ingredient</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <IngredientForm handleClose={handleSubmitClose} onSubmit={handleSubmit} obj={ingObj} />
+          <RecipeIngredientForm handleClose={handleSubmitClose} onSubmit={handleSubmit} obj={ingObj} />
         </Modal.Body>
       </Modal.Dialog>
     </Modal>
   );
 }
 
-EditIngredient.propTypes = {
+EditRecipeIngredient.propTypes = {
   ingObj: PropTypes.shape({
     name: PropTypes.string,
     amount: PropTypes.number,
     firebaseKey: PropTypes.string,
     id: PropTypes.number,
     photo: PropTypes.string,
-    uid: PropTypes.string,
+    recipeId: PropTypes.string,
     unit: PropTypes.string,
   }).isRequired,
   handleClose: PropTypes.func.isRequired,

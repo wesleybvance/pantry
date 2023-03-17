@@ -17,6 +17,8 @@ const initialState = {
   unit: '',
 };
 
+const initialStateS = 0;
+
 export default function RecipeIngredientForm({ obj, select, handleClose }) {
   const [formInput, setFormInput] = useState(initialState);
   const [ingredientSelect, setIngredientSelect] = useState(0);
@@ -25,15 +27,14 @@ export default function RecipeIngredientForm({ obj, select, handleClose }) {
   const { firebaseKey } = router.query;
 
   useEffect(() => {
-    if (obj.firebaseKey && select) {
+    if (obj.firebaseKey) {
       setFormInput(obj);
-      setIngredientSelect(select);
     } if (select) setIngredientSelect(select);
-  }, [obj, select, user]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [obj.firebaseKey, select, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.warn(firebaseKey);
     setFormInput((prevState) => ({
       ...prevState,
       [name]: value,
@@ -44,8 +45,9 @@ export default function RecipeIngredientForm({ obj, select, handleClose }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       formInput.amount = Number(formInput.amount);
-      console.warn(formInput);
       updateRecipeIngredient(formInput);
+      router.replace(`/recipes/${obj.recipeId}`);
+      handleClose();
     } else {
       getSpoonIngredient(ingredientSelect, formInput.amount, formInput.unit).then((data) => {
         const payload = {
@@ -123,10 +125,11 @@ RecipeIngredientForm.propTypes = {
     recipeId: PropTypes.string,
     unit: PropTypes.string,
   }),
-  select: PropTypes.number.isRequired,
   handleClose: PropTypes.func.isRequired,
+  select: PropTypes.number,
 };
 
 RecipeIngredientForm.defaultProps = {
   obj: initialState,
+  select: initialStateS,
 };
