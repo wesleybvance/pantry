@@ -13,9 +13,9 @@ export default function ViewPantry() {
   };
 
   useEffect(() => {
-    getAllIngredients();
+    getIngredientsByUID(user.uid).then(setIngredients);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ingredients]);
+  }, [user, ingredients]);
 
   return (
     <div>
