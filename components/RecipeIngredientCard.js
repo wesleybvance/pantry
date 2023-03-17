@@ -6,17 +6,25 @@ import { useAuth } from '../utils/context/authContext';
 import { getSingleRecipe } from '../api/recipeData';
 import { deleteRecipeIngredient } from '../api/recipeIngredientsData';
 import EditRecipeIngredient from './EditRecipeIngredient';
+import { getIngredientsByUID } from '../api/ingredientsData';
+import CompareRP from '../utils/CompareRP';
 
 export default function RecipeIngredientCard({ ingredientObj, onUpdate }) {
   const [showIngredientModal, setShowIngredientModal] = useState(false);
   const [recipe, setRecipe] = useState({});
   const { user } = useAuth();
+  const [pantryIngredients, setPantryIngredients] = useState([]);
 
   const deleteIngredientCard = () => {
     if (window.confirm(`Delete ${ingredientObj.name}?`)) {
       deleteRecipeIngredient(ingredientObj.firebaseKey).then(() => onUpdate());
     }
   };
+
+  const getPantryIngredients = () => {
+    getIngredientsByUID(user.uid).then(setPantryIngredients);
+  };
+
   const handleClick = () => {
     setShowIngredientModal(true);
   };
@@ -25,8 +33,13 @@ export default function RecipeIngredientCard({ ingredientObj, onUpdate }) {
     setShowIngredientModal(false);
   };
 
-  useEffect(() => {
+  const getFullRecipe = () => {
     getSingleRecipe(ingredientObj.recipeId).then((recipeObj) => setRecipe(recipeObj));
+  };
+
+  useEffect(() => {
+    getFullRecipe();
+    getPantryIngredients();
   }, [ingredientObj]);
 
   return (
@@ -37,7 +50,10 @@ export default function RecipeIngredientCard({ ingredientObj, onUpdate }) {
         </div>
         <div>
           <Card.Body>
-            <Card.Title>{ingredientObj.name}</Card.Title>
+            <Card.Title>{ingredientObj.name}
+              {pantryIngredients?.map((ingredient) => <CompareRP key={ingredient.firebaseKey} ingredient={ingredient} recipeIngredientObj={ingredientObj} />)}
+              {ingredientObj.id === 14412 ? (<h5>🟢</h5>) : ''}
+            </Card.Title>
             <Card.Text>
               {ingredientObj.amount} {ingredientObj.unit}
             </Card.Text>

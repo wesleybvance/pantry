@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
@@ -7,8 +8,12 @@ import RecipeIngredients from './RecipeIngredients';
 export default function ViewRecipe({ firebaseKey }) {
   const [recipeInfo, setRecipeInfo] = useState({});
 
-  useEffect(() => {
+  const getRecipeInfo = () => {
     getSingleRecipe(firebaseKey).then(setRecipeInfo);
+  };
+
+  useEffect(() => {
+    getRecipeInfo(firebaseKey);
   }, [firebaseKey]);
 
   return (
