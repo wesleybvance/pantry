@@ -25,15 +25,13 @@ export default function RecipeIngredientForm({ obj, select, handleClose }) {
   const { firebaseKey } = router.query;
 
   useEffect(() => {
-    if (obj.firebaseKey && select) {
+    if (obj.firebaseKey) {
       setFormInput(obj);
-      setIngredientSelect(select);
     } if (select) setIngredientSelect(select);
   }, [obj, select, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.warn(firebaseKey);
     setFormInput((prevState) => ({
       ...prevState,
       [name]: value,
@@ -44,8 +42,9 @@ export default function RecipeIngredientForm({ obj, select, handleClose }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       formInput.amount = Number(formInput.amount);
-      console.warn(formInput);
       updateRecipeIngredient(formInput);
+      router.replace(`/recipes/${obj.recipeId}`);
+      handleClose();
     } else {
       getSpoonIngredient(ingredientSelect, formInput.amount, formInput.unit).then((data) => {
         const payload = {

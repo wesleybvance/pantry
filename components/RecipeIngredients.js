@@ -32,7 +32,7 @@ export default function RecipeIngredients() {
   useEffect(() => {
     getAllRecipeDetails(firebaseKey);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [firebaseKey]);
+  }, [recipeDetails]);
 
   return (
     <div>

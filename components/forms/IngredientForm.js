@@ -17,18 +17,18 @@ const initialState = {
   unit: '',
 };
 
-export default function IngredientForm({ obj, select, handleClose }) {
+export default function IngredientForm({ obj, handleClose }) {
   const [formInput, setFormInput] = useState(initialState);
   const [ingredientSelect, setIngredientSelect] = useState(0);
   const { user } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (obj.firebaseKey && select) {
+    if (obj.firebaseKey) {
       setFormInput(obj);
-      setIngredientSelect(select);
-    } if (select) setIngredientSelect(select);
-  }, [obj, select, user]);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [obj.firebaseKey]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,8 +42,9 @@ export default function IngredientForm({ obj, select, handleClose }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       formInput.amount = Number(formInput.amount);
-      console.warn(formInput);
       updateIngredient(formInput);
+      router.replace('/pantry');
+      handleClose();
     } else {
       getSpoonIngredient(ingredientSelect, formInput.amount, formInput.unit).then((data) => {
         const payload = {
@@ -121,7 +122,6 @@ IngredientForm.propTypes = {
     uid: PropTypes.string,
     unit: PropTypes.string,
   }),
-  select: PropTypes.number.isRequired,
   handleClose: PropTypes.func.isRequired,
 };
 

@@ -24,7 +24,6 @@ export default function SelectIngredient({ handleIngredientId, selection }) {
 
   const handleSelectChange = (e) => {
     selectionChange(e.target.value);
-    setSearchInput('');
   };
 
   useEffect(() => {
@@ -41,7 +40,7 @@ export default function SelectIngredient({ handleIngredientId, selection }) {
     if (searchInput !== '') getSpoonIngredients(searchInput).then((data) => data[0]).then(setSearchResults);
   };
 
-  const handleSearchSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
   };
 
@@ -51,9 +50,9 @@ export default function SelectIngredient({ handleIngredientId, selection }) {
   return (
     <div>
       <Form id="searchBar">
-        <input className="form-control" type="text" placeholder="Search..." onChange={handleSearchChange} onSubmit={handleSearchSubmit} value={searchInput} style={{ width: '300px', height: '40px' }} />
+        <input className="form-control" type="text" placeholder="Search..." onChange={handleSearchChange} onSubmit={handleSubmit} value={searchInput} style={{ width: '300px', height: '40px' }} />
       </Form>
-      <Form.Select aria-label="Default select example" onChange={handleSelectChange} required>
+      <Form.Select aria-label="Default select example" onChange={handleSelectChange} onSubmit={handleSubmit} required>
         <option>Select Ingredient</option>
         {searchResults.map((obj) => (
           <IngredientSelectOptions key={obj.name} ingredientObj={obj} onUpdate={getSearchResults} />
