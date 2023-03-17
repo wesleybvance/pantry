@@ -27,7 +27,7 @@ export default function NewIngredient({ handleClose, show }) {
         </Modal.Header>
 
         <Modal.Body>
-          <SelectIngredient handleIngredientId={handleIngredientId} />
+          <SelectIngredient handleIngredientId={handleIngredientId} onSubmit={handleSubmit} />
           <IngredientForm select={ingredientId} handleClose={handleSubmitClose} onSubmit={handleSubmit} />
         </Modal.Body>
       </Modal.Dialog>

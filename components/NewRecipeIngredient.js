@@ -20,14 +20,14 @@ export default function NewRecipeIngredient({ handleClose, show }) {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} onSubmit={handleSubmit}>
       <Modal.Dialog>
         <Modal.Header closeButton>
           <Modal.Title>Search Ingredients For Recipe</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <SelectIngredient handleIngredientId={handleIngredientId} />
+          <SelectIngredient handleIngredientId={handleIngredientId} onSubmit={handleSubmit} />
           <RecipeIngredientForm select={ingredientId} handleClose={handleSubmitClose} onSubmit={handleSubmit} />
         </Modal.Body>
       </Modal.Dialog>

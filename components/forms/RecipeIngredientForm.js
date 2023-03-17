@@ -17,6 +17,8 @@ const initialState = {
   unit: '',
 };
 
+const initialStateS = 0;
+
 export default function RecipeIngredientForm({ obj, select, handleClose }) {
   const [formInput, setFormInput] = useState(initialState);
   const [ingredientSelect, setIngredientSelect] = useState(0);
@@ -28,7 +30,8 @@ export default function RecipeIngredientForm({ obj, select, handleClose }) {
     if (obj.firebaseKey) {
       setFormInput(obj);
     } if (select) setIngredientSelect(select);
-  }, [obj, select, user]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [obj.firebaseKey, select, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -122,10 +125,11 @@ RecipeIngredientForm.propTypes = {
     recipeId: PropTypes.string,
     unit: PropTypes.string,
   }),
-  select: PropTypes.number.isRequired,
   handleClose: PropTypes.func.isRequired,
+  select: PropTypes.number,
 };
 
 RecipeIngredientForm.defaultProps = {
   obj: initialState,
+  select: initialStateS,
 };

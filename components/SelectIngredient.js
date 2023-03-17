@@ -49,7 +49,7 @@ export default function SelectIngredient({ handleIngredientId, selection }) {
   };
   return (
     <div>
-      <Form id="searchBar">
+      <Form id="searchBar" onSubmit={handleSubmit}>
         <input className="form-control" type="text" placeholder="Search..." onChange={handleSearchChange} onSubmit={handleSubmit} value={searchInput} style={{ width: '300px', height: '40px' }} />
       </Form>
       <Form.Select aria-label="Default select example" onChange={handleSelectChange} onSubmit={handleSubmit} required>

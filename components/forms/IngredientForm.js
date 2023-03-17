@@ -17,7 +17,9 @@ const initialState = {
   unit: '',
 };
 
-export default function IngredientForm({ obj, handleClose }) {
+const initialStateS = 0;
+
+export default function IngredientForm({ obj, select, handleClose }) {
   const [formInput, setFormInput] = useState(initialState);
   const [ingredientSelect, setIngredientSelect] = useState(0);
   const { user } = useAuth();
@@ -26,9 +28,9 @@ export default function IngredientForm({ obj, handleClose }) {
   useEffect(() => {
     if (obj.firebaseKey) {
       setFormInput(obj);
-    }
+    } if (select) setIngredientSelect(select);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [obj.firebaseKey]);
+  }, [obj.firebaseKey, select, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -122,9 +124,11 @@ IngredientForm.propTypes = {
     uid: PropTypes.string,
     unit: PropTypes.string,
   }),
+  select: PropTypes.number,
   handleClose: PropTypes.func.isRequired,
 };
 
 IngredientForm.defaultProps = {
   obj: initialState,
+  select: initialStateS,
 };
