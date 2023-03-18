@@ -41,7 +41,7 @@ export default function RecipeForm({ obj }) {
       createRecipe(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateRecipe(patchPayload).then(() => {
-          router.replace('/recipes/user');
+          router.replace(`/recipes/recipes/${patchPayload.firebaseKey}`);
         });
       });
     }

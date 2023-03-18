@@ -29,8 +29,12 @@ export default function UpdatePantryFromRecipe({ recipeId }) {
     });
   };
 
+  const handleClick = () => {
+    updatePantry(recipeDetails, pantryIngredients);
+  };
+
   return (
-    <Button onClick={updatePantry(recipeDetails, pantryIngredients)}>Made This Recipe</Button>
+    <Button onClick={handleClick}>Made This Recipe</Button>
   );
 }
 
