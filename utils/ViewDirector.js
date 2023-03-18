@@ -3,6 +3,7 @@ import { useAuth } from './context/authContext';
 import Loading from '../components/Loading';
 import Signin from '../components/Signin';
 import NavBar from '../components/NavBar';
+import NavBarLogOut from '../components/NavBarLogOut';
 
 const ViewDirectorBasedOnUserAuthStatus = ({ component: Component, pageProps }) => {
   const { user, userLoading } = useAuth();
@@ -24,7 +25,15 @@ const ViewDirectorBasedOnUserAuthStatus = ({ component: Component, pageProps }) 
     );
   }
 
-  return <Signin />;
+  return (
+    <>
+      <NavBarLogOut />
+      {/* <Signin /> */}
+      <div className="container">
+        <Component {...pageProps} />
+      </div>
+    </>
+  );
 };
 
 export default ViewDirectorBasedOnUserAuthStatus;
