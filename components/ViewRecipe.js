@@ -4,9 +4,12 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getSingleRecipe } from '../api/recipeData';
 import RecipeIngredients from './RecipeIngredients';
+import { useAuth } from '../utils/context/authContext';
+import UpdatePantryFromRecipe from '../utils/UpdatePantryFromRecipe';
 
 export default function ViewRecipe({ firebaseKey }) {
   const [recipeInfo, setRecipeInfo] = useState({});
+  const { user } = useAuth();
 
   const getRecipeInfo = () => {
     getSingleRecipe(firebaseKey).then(setRecipeInfo);
@@ -23,6 +26,9 @@ export default function ViewRecipe({ firebaseKey }) {
         <div className="photo-ing-cont">
           <img src={recipeInfo.photo} width="500px" alt="recipePhoto" />
           <RecipeIngredients key={firebaseKey} firebaseKey={firebaseKey} />
+        </div>
+        <div>
+          {user ? (<UpdatePantryFromRecipe recipeId={firebaseKey} />) : ''}
         </div>
         <div className="recipe-instructions">
           {recipeInfo.instructions}
