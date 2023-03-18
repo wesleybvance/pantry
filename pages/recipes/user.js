@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { getUserRecipes } from '../../api/recipeData';
 import RecipeCard from '../../components/RecipeCard';
+import UserRecipeSearchBar from '../../components/UserRecipeSearch';
 import { useAuth } from '../../utils/context/authContext';
 
 function UserRecipes() {
@@ -22,6 +23,7 @@ function UserRecipes() {
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
     >
+      <UserRecipeSearchBar />
       <div className="d-flex flex-wrap">
         {/* MAP OVER RECIPE CARDS - RECIPECARD COMPONENT */}
         {recipes.map((recipe) => (

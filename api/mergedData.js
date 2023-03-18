@@ -1,4 +1,6 @@
-import { deleteRecipe, getSingleRecipe } from './recipeData';
+import {
+  deleteRecipe, getSingleRecipe,
+} from './recipeData';
 import { deleteRecipeIngredient, getRecipeIngredientsByRecipeID, getSingleRecipeIngredient } from './recipeIngredientsData';
 
 const deleteRecipeIngredients = (firebaseKey) => new Promise((resolve, reject) => {

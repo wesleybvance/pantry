@@ -3,6 +3,7 @@ import { getPublicRecipes } from '../api/recipeData';
 import RecipeCard from '../components/RecipeCard';
 import { signOut } from '../utils/auth';
 import { useAuth } from '../utils/context/authContext';
+import PublicRecipeSearchBar from '../components/PublicRecipeSearchBar';
 
 function Home() {
   // GET ACCESS TO USER OBJECT VIA GOOGLE AUTH
@@ -16,13 +17,13 @@ function Home() {
 
   useEffect(() => {
     getHomeRecipes();
-  }, []);
+  }, [user]);
 
   return (
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
     >
-      <h1>Hello {user.displayName}! </h1>
+      <PublicRecipeSearchBar />
       <div className="d-flex flex-wrap">
         {/* MAP OVER RECIPE CARDS - RECIPECARD COMPONENT */}
         {recipes.map((recipe) => (
