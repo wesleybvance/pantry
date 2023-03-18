@@ -31,7 +31,7 @@ export default function RecipeIngredientForm({ obj, select, handleClose }) {
       setFormInput(obj);
     } if (select) setIngredientSelect(select);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [obj.firebaseKey, select, user]);
+  }, [select, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
