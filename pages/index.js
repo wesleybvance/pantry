@@ -30,9 +30,11 @@ function Home() {
           <RecipeCard key={recipe.firebaseKey} recipeObj={recipe} onUpdate={getHomeRecipes} />
         ))}
       </div>
-      <button className="btn btn-danger btn-lg copy-btn" type="button" onClick={signOut}>
-        Sign Out
-      </button>
+      {user ? (
+        <button className="btn btn-danger btn-lg copy-btn" type="button" onClick={signOut}>
+          Sign Out
+        </button>
+      ) : ''}
     </div>
   );
 }
