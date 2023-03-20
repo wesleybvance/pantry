@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 const ConvertUnits = (recipeIng, pantryIng) => {
   // IF RECIPE UNIT DOESNT MATCH PANTRY UNIT
   if (recipeIng.id === pantryIng.id && recipeIng.unit !== pantryIng.unit) {
