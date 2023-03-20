@@ -20,11 +20,13 @@ export default function UpdatePantryFromRecipe({ recipeId }) {
   const updatePantry = (recipe, pantry) => {
     recipe.recipeIngredients?.forEach((recipeIngredient) => {
       pantry?.forEach((pantryIngredient) => {
-        if (recipeIngredient.id === pantryIngredient.id) {
+        if (recipeIngredient.id === pantryIngredient.id && recipeIngredient.unit === pantryIngredient.unit && recipeIngredient.amount <= pantryIngredient.amount) {
           const newAmount = pantryIngredient.amount - recipeIngredient.amount;
           const patchPayload = { amount: newAmount, firebaseKey: pantryIngredient.firebaseKey };
           updateIngredient(patchPayload);
-        }
+        } else if (recipeIngredient.id === pantryIngredient.id && recipeIngredient.unit === pantryIngredient.unit && recipeIngredient.amount > pantryIngredient.amount) {
+          console.warn('need more ingredients');
+        } else console.warn('no matching ingredients');
       });
     });
   };

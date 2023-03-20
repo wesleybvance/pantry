@@ -8,6 +8,7 @@ import { deleteRecipeIngredient } from '../api/recipeIngredientsData';
 import EditRecipeIngredient from './EditRecipeIngredient';
 import { getIngredientsByUID } from '../api/ingredientsData';
 import CompareRP from '../utils/CompareRP';
+import NoMatchRP from '../utils/NoMatchRP';
 
 export default function RecipeIngredientCard({ ingredientObj, onUpdate }) {
   const [showIngredientModal, setShowIngredientModal] = useState(false);
@@ -53,6 +54,7 @@ export default function RecipeIngredientCard({ ingredientObj, onUpdate }) {
             <Card.Title>{ingredientObj.name}
               {pantryIngredients?.map((ingredient) => <CompareRP key={ingredient.firebaseKey} ingredient={ingredient} recipeIngredientObj={ingredientObj} />)}
               {ingredientObj.id === 14412 ? (<h5>🟢</h5>) : ''}
+              <NoMatchRP key={ingredientObj.firebaseKey} recipeIngredient={ingredientObj} pantryIngredients={pantryIngredients} />
             </Card.Title>
             <Card.Text>
               {ingredientObj.amount} {ingredientObj.unit}
