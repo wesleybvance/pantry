@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// COMPONENT MAPS RECIPE INGREDIENT AGAINST ALL PANTRY INGREDIENTS - IF THERE IS NO MATCHING ID FOR ANY PANTRY INGREDIENT, AND THE INGREDIENT IS NOT WATER, RETURNS A RED SYMBOL
+
 export default function NoMatchRP({ recipeIngredient, pantryIngredients }) {
   const noMatch = !pantryIngredients?.some((ingredient) => ingredient.id === recipeIngredient.id);
 
