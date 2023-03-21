@@ -16,31 +16,197 @@ export default function CompareRP({ ingredient, recipeIngredientObj }) {
   } if ((ingredient.id === recipeIngredientObj.id) && (ingredient.unit !== recipeIngredientObj.unit)) {
     // UNIT CONVERSION & RESPONSE LOGIC
     if ((ingredient.unit === 'grams') && (recipeIngredientObj.unit === 'ounces')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 30;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     } else if ((ingredient.unit === 'ounces') && (recipeIngredientObj.unit === 'grams')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 0.03;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     } else if ((ingredient.unit === 'mL') && (recipeIngredientObj.unit === 'grams')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 1;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     } else if ((ingredient.unit === 'grams') && (recipeIngredientObj.unit === 'mL')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 1;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     } else if ((ingredient.unit === 'ounces') && (recipeIngredientObj.unit === 'mL')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 0.03;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     } else if ((ingredient.unit === 'mL') && (recipeIngredientObj.unit === 'ounces')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 30;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     } else if ((ingredient.unit === 'ounces') && (recipeIngredientObj.unit === 'tsp')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 6;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     } else if ((ingredient.unit === 'tsp') && (recipeIngredientObj.unit === 'ounces')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 6;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     } else if ((ingredient.unit === 'ounces') && (recipeIngredientObj.unit === 'tsbp')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 2;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     } else if ((ingredient.unit === 'tbsp') && (recipeIngredientObj.unit === 'ounces')) {
-      // CONVERT
-    } else if ((ingredient.unit === 'cups') && (recipeIngredientObj.unit === 'ounces')) {
-      // CONVERT
-    } else if ((ingredient.unit === 'ounces') && (recipeIngredientObj.unit === 'cups')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 2;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'cup') && (recipeIngredientObj.unit === 'ounces')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 8;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'ounces') && (recipeIngredientObj.unit === 'cup')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 8;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     } else if ((ingredient.unit === 'tsp') && (recipeIngredientObj.unit === 'grams')) {
-      // CONVERT
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 4.5;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'grams') && (recipeIngredientObj.unit === 'tsp')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 4.5;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'tbsp') && (recipeIngredientObj.unit === 'grams')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 14.8;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'grams') && (recipeIngredientObj.unit === 'tbsp')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 14.8;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'cup') && (recipeIngredientObj.unit === 'grams')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 220;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'grams') && (recipeIngredientObj.unit === 'cup')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 220;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'mL') && (recipeIngredientObj.unit === 'tsp')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 4.5;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'tsp') && (recipeIngredientObj.unit === 'mL')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 4.5;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'tbsp') && (recipeIngredientObj.unit === 'mL')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 14.8;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'mL') && (recipeIngredientObj.unit === 'tbsp')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 14.8;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'cup') && (recipeIngredientObj.unit === 'mL')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 220;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'mL') && (recipeIngredientObj.unit === 'cup')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 220;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     }
   } return ('');
 }
