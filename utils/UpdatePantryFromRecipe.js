@@ -35,8 +35,20 @@ export default function UpdatePantryFromRecipe({ recipeId }) {
     updatePantry(recipeDetails, pantryIngredients);
   };
 
+  const hasNoMatchingIds = () => {
+    const result = pantryIngredients?.every((pingredient) => !recipeDetails.recipeIngredients?.some((ringredient) => ringredient.id === pingredient.id));
+    return result;
+  };
+
+  const compareIngredients = () => {
+    if (hasNoMatchingIds) {
+      // No match found, so hide button
+      console.warn('no match');
+    } else (<Button onClick={handleClick}>Made This Recipe</Button>);
+  };
+
   return (
-    <Button onClick={handleClick}>Made This Recipe</Button>
+    <div>{compareIngredients}</div>
   );
 }
 
