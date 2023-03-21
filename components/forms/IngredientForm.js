@@ -107,6 +107,9 @@ export default function IngredientForm({ obj, select, handleClose }) {
           <option value="grams">grams</option>
           <option value="ounces">ounces</option>
           <option value="mL">milliliters</option>
+          <option value="tsp">teaspoon</option>
+          <option value="tbsp">tablespoon</option>
+          <option value="cup">cup</option>
         </Form.Select>
         <Button type="submit" variant="outline-dark" className="m-2 text-color-drkblu">{obj.firebaseKey ? 'Update' : 'Create'}</Button>
       </Form>

@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 // COMPARES RECIPE INGREDIENTS TO PANTRY INGREDIENTS, RETURNS GREEN SYMBOL IF USER HAS RECIPE INGREDIENT IN PANTRY + ENOUGH FOR RECIPE, ORANGE IF USER HAS RECIPE INGREDIEENT BUT NOT ENOUGH FOR RECIPE
 
 export default function CompareRP({ ingredient, recipeIngredientObj }) {
-  if ((ingredient.id === recipeIngredientObj.id) && (ingredient.amount >= recipeIngredientObj.amount)) {
+  if ((ingredient.id === recipeIngredientObj.id) && (ingredient.unit === recipeIngredientObj.unit) && (ingredient.amount >= recipeIngredientObj.amount)) {
     return (
       <h5>🟢</h5>
     );
-  } if ((ingredient.id === recipeIngredientObj.id) && (ingredient.amount < recipeIngredientObj.amount)) {
+  } if ((ingredient.id === recipeIngredientObj.id) && (ingredient.unit === recipeIngredientObj.unit) && (ingredient.amount < recipeIngredientObj.amount)) {
     return (
       <h5>🟠</h5>
     );
