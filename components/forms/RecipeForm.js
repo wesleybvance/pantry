@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
@@ -92,9 +93,11 @@ export default function RecipeForm({ obj }) {
           className="mb-3"
         >
           <Form.Control
-            type="text"
+            as="textarea"
+            rows={10}
+            type="textarea"
             placeholder="Instructions"
-            style={{ height: '100px' }}
+            style={{ height: '500px' }}
             name="instructions"
             value={formInput.instructions}
             onChange={handleChange}

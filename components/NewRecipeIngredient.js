@@ -5,7 +5,7 @@ import SelectIngredient from './SelectIngredient';
 import RecipeIngredientForm from './forms/RecipeIngredientForm';
 
 // NEW INGREDIENT MODAL - includes AddIngredientForm, Search/Select Ingredient from Spoonacular Component
-export default function NewRecipeIngredient({ handleClose, show }) {
+export default function NewRecipeIngredient({ handleClose, show, afterSubmit }) {
   const [ingredientId, setIngredientId] = useState(0);
   const handleIngredientId = (id) => {
     setIngredientId(id);
@@ -28,7 +28,7 @@ export default function NewRecipeIngredient({ handleClose, show }) {
 
         <Modal.Body>
           <SelectIngredient handleIngredientId={handleIngredientId} onSubmit={handleSubmit} />
-          <RecipeIngredientForm select={ingredientId} handleClose={handleSubmitClose} onSubmit={handleSubmit} />
+          <RecipeIngredientForm afterSubmit={afterSubmit} select={ingredientId} handleClose={handleSubmitClose} onSubmit={handleSubmit} />
         </Modal.Body>
       </Modal.Dialog>
     </Modal>
@@ -38,4 +38,9 @@ export default function NewRecipeIngredient({ handleClose, show }) {
 NewRecipeIngredient.propTypes = {
   handleClose: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
+  afterSubmit: PropTypes.func,
+};
+
+NewRecipeIngredient.defaultProps = {
+  afterSubmit: () => {},
 };
