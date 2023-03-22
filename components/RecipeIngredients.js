@@ -34,11 +34,11 @@ export default function RecipeIngredients() {
 
   useEffect(() => {
     getAllRecipeDetails(firebaseKey);
-  }, [recipeDetails]);
+  }, [user]);
 
   return (
     <div>
-      {user.uid === recipeDetails.uid ? (<><Button variant="primary" onClick={handleClick}>Add Recipe Ingredient</Button><NewRecipeIngredient show={showIngredientModal} handleClose={handleCloseBtn} /></>) : ''}
+      {user.uid === recipeDetails.uid ? (<><Button variant="primary" onClick={handleClick}>Add Recipe Ingredient</Button><NewRecipeIngredient afterSubmit={getAllRecipeDetails} show={showIngredientModal} handleClose={handleCloseBtn} /></>) : ''}
       <div className="d-flex flex-wrap ingredient-container">
         {/* MAP OVER INGREDIENT CARDS - RECIPE INGREDIENT COMPONENT */}
         {recipeDetails.recipeIngredients?.map((ingredient) => (

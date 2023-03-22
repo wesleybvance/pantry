@@ -19,7 +19,9 @@ const initialState = {
 
 const initialStateS = 0;
 
-export default function IngredientForm({ obj, select, handleClose }) {
+export default function IngredientForm({
+  obj, select, handleClose, afterSubmit,
+}) {
   const [formInput, setFormInput] = useState(initialState);
   const [ingredientSelect, setIngredientSelect] = useState(0);
   const { user } = useAuth();
@@ -61,7 +63,7 @@ export default function IngredientForm({ obj, select, handleClose }) {
           const patchPayload = { firebaseKey: name };
           updateIngredient(patchPayload);
         }).then(() => {
-          router.replace('/pantry');
+          afterSubmit();
           handleClose();
         });
       });
@@ -129,9 +131,11 @@ IngredientForm.propTypes = {
   }),
   select: PropTypes.number,
   handleClose: PropTypes.func.isRequired,
+  afterSubmit: PropTypes.func,
 };
 
 IngredientForm.defaultProps = {
   obj: initialState,
   select: initialStateS,
+  afterSubmit: () => {},
 };

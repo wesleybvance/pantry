@@ -19,7 +19,9 @@ const initialState = {
 
 const initialStateS = 0;
 
-export default function RecipeIngredientForm({ obj, select, handleClose }) {
+export default function RecipeIngredientForm({
+  obj, select, handleClose, afterSubmit,
+}) {
   const [formInput, setFormInput] = useState(initialState);
   const [ingredientSelect, setIngredientSelect] = useState(0);
   const { user } = useAuth();
@@ -62,7 +64,7 @@ export default function RecipeIngredientForm({ obj, select, handleClose }) {
           const patchPayload = { firebaseKey: name };
           updateRecipeIngredient(patchPayload);
         }).then(() => {
-          router.replace(`/recipes/${firebaseKey}`);
+          afterSubmit();
           handleClose();
         });
       });
@@ -130,9 +132,11 @@ RecipeIngredientForm.propTypes = {
   }),
   handleClose: PropTypes.func.isRequired,
   select: PropTypes.number,
+  afterSubmit: PropTypes.func,
 };
 
 RecipeIngredientForm.defaultProps = {
   obj: initialState,
   select: initialStateS,
+  afterSubmit: () => {},
 };
