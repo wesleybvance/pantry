@@ -207,6 +207,54 @@ export default function CompareRP({ ingredient, recipeIngredientObj }) {
       } if (newRecipeIngAmount > ingredient.amount) {
         return (<h5>🟠</h5>);
       }
+    } else if ((ingredient.unit === 'tbsp') && (recipeIngredientObj.unit === 'tsp')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 3;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'cup') && (recipeIngredientObj.unit === 'tsp')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 48;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'tsp') && (recipeIngredientObj.unit === 'tbsp')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 3;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'cup') && (recipeIngredientObj.unit === 'tbsp')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount / 16;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'tsp') && (recipeIngredientObj.unit === 'cup')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 48;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
+    } else if ((ingredient.unit === 'tbsp') && (recipeIngredientObj.unit === 'cup')) {
+      const oldRecipeIngAmount = recipeIngredientObj.amount;
+      const newRecipeIngAmount = oldRecipeIngAmount * 16;
+      if (newRecipeIngAmount <= ingredient.amount) {
+        return (<h5>🟢</h5>);
+      } if (newRecipeIngAmount > ingredient.amount) {
+        return (<h5>🟠</h5>);
+      }
     }
   } return ('');
 }
