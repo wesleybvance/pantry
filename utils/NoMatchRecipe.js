@@ -8,6 +8,8 @@ import { getIngredientsByUID } from '../api/ingredientsData';
 import { useAuth } from './context/authContext';
 import { viewRecipeDetails } from '../api/mergedData';
 
+// COMPONENT CHECKS WHETHER EVERY RECIPE INGREDIENT FOR A RECIPE MATCHES A USER'S PANTRY INGREDIENT. IF TRUE, RETURNS BUTTON FOR "MAKE THIS RECIPE"
+
 export default function NoMatchRecipe({ recipeId }) {
   const [recipeDetails, setRecipeDetails] = useState([]);
   const [pantryIngredients, setPantryIngredients] = useState([]);
