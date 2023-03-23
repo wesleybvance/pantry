@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 import { getIngredientsByUID, updateIngredient } from '../api/ingredientsData';
 import { viewRecipeDetails } from '../api/mergedData';
 import { useAuth } from './context/authContext';
+import convertUnitsPantryUpdate from './unitConversion';
 
 export default function UpdatePantryFromRecipe({ recipeId }) {
   const { user } = useAuth();
@@ -31,8 +32,8 @@ export default function UpdatePantryFromRecipe({ recipeId }) {
             updateIngredient(patchPayload);
           }
         } else if (recipeIngredient.id === pantryIngredient.id && recipeIngredient.unit !== pantryIngredient.unit) {
-          convertUnits(recipeIngredient, pantryIngredient);
-        } else console.warn('no matching ingredients');
+          convertUnitsPantryUpdate(recipeIngredient, pantryIngredient);
+        } else console.warn('nothing to update');
       });
     });
   };
@@ -41,20 +42,15 @@ export default function UpdatePantryFromRecipe({ recipeId }) {
     updatePantry(recipeDetails, pantryIngredients);
   };
 
-  const hasNoMatchingIds = () => {
-    const result = pantryIngredients?.every((pingredient) => !recipeDetails.recipeIngredients?.some((ringredient) => ringredient.id === pingredient.id));
+  const hasMatchingIds = () => {
+    const result = recipeDetails.recipeIngredients?.every((ringredient) => pantryIngredients?.some((pingredient) => pingredient.id === ringredient.id));
     return result;
   };
 
-  const compareIngredients = () => {
-    if (hasNoMatchingIds) {
-      // No match found, so hide button
-      console.warn('no match');
-    } else (<Button onClick={handleClick}>Made This Recipe</Button>);
-  };
-
   return (
-    <div>{compareIngredients}</div>
+    <div>
+      {(hasMatchingIds()) ? (<Button onClick={handleClick}>Make This Recipe</Button>) : ('')}
+    </div>
   );
 }
 

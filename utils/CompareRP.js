@@ -79,7 +79,7 @@ export default function CompareRP({ ingredient, recipeIngredientObj }) {
       } if (newRecipeIngAmount > ingredient.amount) {
         return (<h5>🟠</h5>);
       }
-    } else if ((ingredient.unit === 'ounces') && (recipeIngredientObj.unit === 'tsbp')) {
+    } else if ((ingredient.unit === 'ounces') && (recipeIngredientObj.unit === 'tbsp')) {
       const oldRecipeIngAmount = recipeIngredientObj.amount;
       const newRecipeIngAmount = oldRecipeIngAmount / 2;
       if (newRecipeIngAmount <= ingredient.amount) {

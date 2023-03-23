@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 import { getSingleRecipe } from '../api/recipeData';
 import RecipeIngredients from './RecipeIngredients';
 import { useAuth } from '../utils/context/authContext';
-// import UpdatePantryFromRecipe from '../utils/UpdatePantryFromRecipe';
-import NoMatchRecipe from '../utils/NoMatchRecipe';
+import UpdatePantryFromRecipe from '../utils/UpdatePantryFromRecipe';
 
 export default function ViewRecipe({ firebaseKey }) {
   const [recipeInfo, setRecipeInfo] = useState({});
@@ -29,8 +28,8 @@ export default function ViewRecipe({ firebaseKey }) {
           <RecipeIngredients key={firebaseKey} firebaseKey={firebaseKey} />
         </div>
         <div>
-          {/* {user ? (<UpdatePantryFromRecipe recipeId={firebaseKey} />) : ''} */}
-          {user ? (<NoMatchRecipe recipeId={firebaseKey} />) : ''}
+          {user ? (<UpdatePantryFromRecipe recipeId={firebaseKey} />) : ''}
+          {/* {user ? (<NoMatchRecipe recipeId={firebaseKey} />) : ''} */}
         </div>
         <div className="recipe-instructions">
           {recipeInfo.instructions}
