@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
+import { useRouter } from 'next/router';
 import { getSingleRecipe } from '../api/recipeData';
 import RecipeIngredients from './RecipeIngredients';
 import { useAuth } from '../utils/context/authContext';
@@ -10,6 +13,7 @@ import UpdatePantryFromRecipe from '../utils/UpdatePantryFromRecipe';
 export default function ViewRecipe({ firebaseKey }) {
   const [recipeInfo, setRecipeInfo] = useState({});
   const { user } = useAuth();
+  const router = useRouter();
 
   const getRecipeInfo = () => {
     getSingleRecipe(firebaseKey).then(setRecipeInfo);
@@ -28,10 +32,11 @@ export default function ViewRecipe({ firebaseKey }) {
           <RecipeIngredients key={firebaseKey} firebaseKey={firebaseKey} />
         </div>
         <div>
+          {recipeInfo.uid === user.uid ? (<Button onClick={(e) => router.replace(`/recipes/edit/${recipeInfo.firebaseKey}`)} variant="dark">Edit</Button>) : ''}
           {user ? (<UpdatePantryFromRecipe recipeId={firebaseKey} />) : ''}
           {/* {user ? (<NoMatchRecipe recipeId={firebaseKey} />) : ''} */}
         </div>
-        <div className="recipe-instructions">
+        <div className="recipe-instructions line-break">
           {recipeInfo.instructions}
         </div>
       </div>

@@ -36,7 +36,7 @@ export default function RecipeForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateRecipe(formInput)
-        .then(() => router.replace('/recipes/user'));
+        .then(() => router.replace(`/recipes/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createRecipe(payload).then(({ name }) => {
