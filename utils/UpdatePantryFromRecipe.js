@@ -39,7 +39,9 @@ export default function UpdatePantryFromRecipe({ recipeId }) {
   };
 
   const handleClick = () => {
-    updatePantry(recipeDetails, pantryIngredients);
+    if (window.confirm('Are you sure you want to update your pantry?')) {
+      updatePantry(recipeDetails, pantryIngredients);
+    }
   };
 
   const hasMatchingIds = () => {
@@ -48,9 +50,7 @@ export default function UpdatePantryFromRecipe({ recipeId }) {
   };
 
   return (
-    <div>
-      {(hasMatchingIds()) ? (<Button onClick={handleClick}>Make This Recipe</Button>) : ('')}
-    </div>
+    <>{(hasMatchingIds()) ? (<Button className="recipe-btn" onClick={handleClick}>Make This Recipe</Button>) : ('')}</>
   );
 }
 

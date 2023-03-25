@@ -44,28 +44,28 @@ export default function RecipeIngredientCard({ ingredientObj, onUpdate }) {
   }, [ingredientObj]);
 
   return (
-    <Card>
+    <Card className="ingredient-card">
       <div className="ingredient-info">
         <div>
           <Card.Img className="ing-img" src={ingredientObj.photo} />
         </div>
         <div>
           <Card.Body>
-            <Card.Title>{ingredientObj.name}
+            <Card.Title className="ingredient-title">{ingredientObj.name}
               {pantryIngredients?.map((ingredient) => <CompareRP key={ingredient.firebaseKey} ingredient={ingredient} recipeIngredientObj={ingredientObj} />)}
               {ingredientObj.id === 14412 ? (<h5>🟢</h5>) : ''}
               <NoMatchRP key={ingredientObj.firebaseKey} recipeIngredient={ingredientObj} pantryIngredients={pantryIngredients} />
             </Card.Title>
-            <Card.Text>
+            <Card.Text className="ingredient-details">
               {ingredientObj.amount} {ingredientObj.unit}
             </Card.Text>
           </Card.Body>
         </div>
         {recipe.uid === user.uid ? (
-          <div className="ing-btn">
-            <Button variant="primary" onClick={handleClick}>Edit</Button>
+          <div className="ing-btn-cont">
+            <Button className="ing-btn edit-btn" variant="light" onClick={handleClick}>EDIT</Button>
             <EditRecipeIngredient ingObj={ingredientObj} show={showIngredientModal} handleClose={handleCloseBtn} />
-            <Button variant="primary" onClick={deleteIngredientCard}>Delete</Button>
+            <Button className="ing-btn edit-btn" variant="light" onClick={deleteIngredientCard}>DELETE</Button>
           </div>
         ) : ''}
       </div>

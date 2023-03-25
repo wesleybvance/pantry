@@ -19,24 +19,36 @@ export default function IngredientCard({ ingredientObj, onUpdate }) {
     setShowIngredientModal(false);
   };
 
+  const formatDate = (date) => {
+    const formattedDate = new Date(date).toLocaleDateString();
+    return formattedDate;
+  };
+
+  const isWithinWeek = (date) => {
+    const oneWeekAhead = new Date();
+    oneWeekAhead.setDate(oneWeekAhead.getDate() + 7);
+    return new Date(date) <= oneWeekAhead;
+  };
+
   return (
-    <Card>
+    <Card className="ingredient-card">
       <div className="ingredient-info">
         <div>
           <Card.Img className="ing-img" src={ingredientObj.photo} />
         </div>
         <div>
           <Card.Body>
-            <Card.Title>{ingredientObj.name}</Card.Title>
-            <Card.Text>
-              {ingredientObj.amount} {ingredientObj.unit}
+            <Card.Title className="ingredient-title">{ingredientObj.name}</Card.Title>
+            <Card.Text className="ingredient-details">
+              <p>{ingredientObj.amount} {ingredientObj.unit}</p>
+              <p className={isWithinWeek(ingredientObj.expiry) ? 'expires-soon' : ''}>{ingredientObj.expiry ? 'expires ' : ''}{ingredientObj.expiry ? (formatDate(ingredientObj.expiry)) : ''}</p>
             </Card.Text>
           </Card.Body>
         </div>
-        <div className="ing-btn">
-          <Button variant="primary" onClick={handleClick}>Edit</Button>
+        <div className="ing-btn-cont">
+          <Button className="ing-btn edit-btn" variant="light" onClick={handleClick}>EDIT</Button>
           <EditIngredient ingObj={ingredientObj} show={showIngredientModal} handleClose={handleCloseBtn} />
-          <Button variant="primary" onClick={deleteIngredientCard}>Delete</Button>
+          <Button className="ing-btn delete-btn" variant="light" onClick={deleteIngredientCard}>DELETE</Button>
         </div>
       </div>
     </Card>
@@ -52,6 +64,7 @@ IngredientCard.propTypes = {
     unit: PropTypes.string,
     uid: PropTypes.string,
     id: PropTypes.number,
+    expiry: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

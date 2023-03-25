@@ -25,19 +25,36 @@ export default function ViewRecipe({ firebaseKey }) {
 
   return (
     <div>
-      <h1>{recipeInfo.name}</h1>
+      <div className="recipe-title-info-cont">
+        <h1 className="title-name">{recipeInfo.name}</h1>
+      </div>
+      <div className="recipe-title-info-cont">
+        <h5 className="recipe-info-text">{recipeInfo.description}</h5>
+      </div>
+      <div className="recipe-title-info-cont">{recipeInfo.time ? (<h4 className="recipe-info-text">{recipeInfo.time} minutes</h4>) : ''}
+        <p> | </p>
+        {recipeInfo.servings ? (<h4 className="recipe-info-text">Serves {recipeInfo.servings}</h4>) : ''}
+      </div>
+
       <div className="recipe-container">
         <div className="photo-ing-cont">
-          <img src={recipeInfo.photo} width="500px" alt="recipePhoto" />
+          <img src={recipeInfo.photo} width="500px" className="recipe-photo" alt="recipePhoto" />
           <RecipeIngredients key={firebaseKey} firebaseKey={firebaseKey} />
         </div>
         <div>
-          {recipeInfo.uid === user.uid ? (<Button onClick={(e) => router.replace(`/recipes/edit/${recipeInfo.firebaseKey}`)} variant="dark">Edit</Button>) : ''}
+          {/* {recipeInfo.uid === user.uid ? (<Button onClick={(e) => router.replace(`/recipes/edit/${recipeInfo.firebaseKey}`)} variant="dark">Edit</Button>) : ''}
           {user ? (<UpdatePantryFromRecipe recipeId={firebaseKey} />) : ''}
-          {/* {user ? (<NoMatchRecipe recipeId={firebaseKey} />) : ''} */}
+          {user ? (<NoMatchRecipe recipeId={firebaseKey} />) : ''} */}
         </div>
-        <div className="recipe-instructions line-break">
-          {recipeInfo.instructions}
+        <div className="recipe-btn-instructions-cont">
+          <div className="recipe-btns">
+            <Button variant="light" className="recipe-btn-top">Instructions</Button>
+            {recipeInfo.uid === user.uid ? (<Button className="recipe-btn" onClick={(e) => router.replace(`/recipes/edit/${recipeInfo.firebaseKey}`)} variant="dark">Edit Recipe</Button>) : ''}
+            {user ? (<UpdatePantryFromRecipe recipeId={firebaseKey} />) : ''}
+          </div>
+          <div className="recipe-instructions line-break">
+            <p className="instruction-text">{recipeInfo.instructions}</p>
+          </div>
         </div>
       </div>
     </div>

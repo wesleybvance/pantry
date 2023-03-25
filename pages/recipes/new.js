@@ -6,7 +6,7 @@ export default function AddRecipe() {
   return (
     <>
       <Head>
-        <title>Add New Recipe</title>
+        <title>Create New Recipe</title>
       </Head>
       <RecipeForm />
     </>

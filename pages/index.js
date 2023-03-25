@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import { getPublicRecipes } from '../api/recipeData';
 import RecipeCard from '../components/RecipeCard';
 import { signOut } from '../utils/auth';
@@ -23,6 +24,10 @@ function Home() {
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
     >
+      <Head>
+        <title>Pantry</title>
+      </Head>
+      <h1 className="recipe-header">Public Recipes</h1>
       <PublicRecipeSearchBar />
       <div className="d-flex flex-wrap">
         {/* MAP OVER RECIPE CARDS - RECIPECARD COMPONENT */}

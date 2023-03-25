@@ -56,9 +56,9 @@ export default function RecipeForm({ obj }) {
       <Head><title>{obj.firebaseKey ? `Update Recipe: ${obj.name}` : 'Add New Recipe'}</title></Head>
 
       <Form onSubmit={handleSubmit} className="text-color-drkblu">
-        <h2 className="mt-5 text-center">{obj.firebaseKey ? `Update ${obj.name}` : 'Add New Recipe'}</h2>
+        <h2 className="mt-5 text-center title-name">{obj.firebaseKey ? `Update ${obj.name}` : 'Add New Recipe'}</h2>
         <div className="mt-5" />
-        <div className="">Recipe Name</div>
+        {/* <div className="">Recipe Name</div> */}
         <FloatingLabel
           controlId="floatingInput1"
           label="Recipe Name"
@@ -73,7 +73,7 @@ export default function RecipeForm({ obj }) {
             required
           />
         </FloatingLabel>
-        <div className="">Description</div>
+        {/* <div className="">Description</div> */}
         <FloatingLabel
           controlId="floatingInput2"
           label="Recipe Description"
@@ -89,7 +89,7 @@ export default function RecipeForm({ obj }) {
             required
           />
         </FloatingLabel>
-        <div className="">Servings</div>
+        {/* <div className="">Servings</div> */}
         <FloatingLabel
           controlId="floatingInput3"
           label="Servings"
@@ -97,16 +97,16 @@ export default function RecipeForm({ obj }) {
         >
           <Form.Control
             type="text"
-            placeholder="Recipe Source"
-            name="source"
+            placeholder="Servings"
+            name="servings"
             value={formInput.servings}
             onChange={handleChange}
           />
         </FloatingLabel>
-        <div className="">Total Cook Time</div>
+        {/* <div className="">Total Cook Time</div> */}
         <FloatingLabel
           controlId="floatingInput3"
-          label="Minutes"
+          label="Total Cook Time - Minutes"
           className="mb-3"
         >
           <Form.Control
@@ -117,7 +117,7 @@ export default function RecipeForm({ obj }) {
             onChange={handleChange}
           />
         </FloatingLabel>
-        <div className="">Instructions</div>
+        {/* <div className="">Instructions</div> */}
         <FloatingLabel
           controlId="floatingInput2"
           label="Recipe Instructions"
@@ -135,7 +135,7 @@ export default function RecipeForm({ obj }) {
             required
           />
         </FloatingLabel>
-        <div className="">Recipe Image URL</div>
+        {/* <div className="">Recipe Image URL</div> */}
         <FloatingLabel
           controlId="floatingInput3"
           label="Image URL"
@@ -150,10 +150,10 @@ export default function RecipeForm({ obj }) {
             required
           />
         </FloatingLabel>
-        <div className="">Recipe URL</div>
+        {/* <div className="">Recipe Source URL</div> */}
         <FloatingLabel
           controlId="floatingInput3"
-          label="Recipe URL"
+          label="Recipe Source URL"
           className="mb-3"
         >
           <Form.Control

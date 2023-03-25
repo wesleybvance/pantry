@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 export default function UserRecipeSearchBar() {
   const [searchInput, setSearchInput] = useState('');
@@ -16,10 +16,11 @@ export default function UserRecipeSearchBar() {
     setSearchInput('');
   };
   return (
-    <div>
+    <div className="search-bar-container">
       <Form onSubmit={handleSubmit} id="searchBar">
-        <input className="form-control" type="text" placeholder="Search Recipes" onChange={handleChange} value={searchInput} style={{ width: '300px', height: '40px' }} />
+        <input className="form-control search-bar" type="text" placeholder="Search Your Recipes" onChange={handleChange} value={searchInput} style={{ width: '1210px', height: '50px', margin: '15px' }} />
       </Form>
+      <Button variant="light" className="search-btn" onClick={handleSubmit}>Search</Button>
     </div>
   );
 }

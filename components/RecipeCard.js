@@ -19,15 +19,15 @@ export default function RecipeCard({ recipeObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={recipeObj.photo} />
+    <Card className="recipe-card" style={{ width: '18rem' }}>
+      <Card.Img className="recipe-card-img" variant="top" src={recipeObj.photo} />
       <Card.Body>
-        <Card.Title><Button variant="black" onClick={(e) => router.replace(`/recipes/${recipeObj.firebaseKey}`)}>{recipeObj.name}</Button></Card.Title>
-        <Card.Text>
+        <Card.Title><Button className="recipe-title-btn" variant="black" onClick={(e) => router.replace(`/recipes/${recipeObj.firebaseKey}`)}>{recipeObj.name}</Button></Card.Title>
+        <Card.Text className="recipe-card-description">
           {recipeObj.description}
         </Card.Text>
-        {recipeObj.uid === user.uid ? (<Button variant="danger" onClick={deleteRecipeCard}>Delete</Button>) : ''}
-        {recipeObj.uid === user.uid ? (<Button onClick={(e) => router.replace(`/recipes/edit/${recipeObj.firebaseKey}`)} variant="dark">Edit</Button>) : ''}
+        {recipeObj.uid === user.uid ? (<Button className="ing-btn" variant="danger" onClick={deleteRecipeCard}>DELETE</Button>) : ''}
+        {recipeObj.uid === user.uid ? (<Button className="ing-btn" onClick={(e) => router.replace(`/recipes/edit/${recipeObj.firebaseKey}`)} variant="dark">EDIT</Button>) : ''}
       </Card.Body>
     </Card>
   );
