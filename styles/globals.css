@@ -43,7 +43,8 @@ body {
 }
 
 .nav-text {
-  font-family:'Courier New', Courier, monospace;
+  /* font-family:'Courier New', Courier, monospace; */
+  font-family: 'DM Serif Display', serif;
   font-size: 22px;
   color: #ff5757;
   margin: 30px;
@@ -59,8 +60,34 @@ body {
   flex-direction: column;
   flex-wrap: nowrap;
   height: 700px;
-  max-width: 520px;
+  max-width: 600px;
   overflow-y: auto;
+  margin: auto;
+  border: 4px solid #ff5757;
+  padding: 10px;
+  box-shadow: 8px 8px #ff5757;
+  background-color: #fffcee;
+  
+
+}
+
+.view-pantry-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.add-pantry-ingredient-btn {
+  margin: auto;
+  font-family: 'DM Serif Display', serif;
+  font-size: 25px;
+  border-radius: 2px;
+  background-color: #fffcee;
+  border: 2px solid #b22020;
+  color: #b22020;
+}
+
+.add-pantry-btn-container {
+  margin: 40px;
 }
 
 /* CONTAINER WITH INGREDIENT DETAILS  */
@@ -72,15 +99,51 @@ body {
 }
 
 /* INGREDIENT CARD BUTTON DIV  */
-.ing-btn {
+.ing-btn-cont {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
+
+/* INGREDIENT CARD BUTTON */
+.ing-btn {
+  margin: 5px 20px 5px 0px;
+  border-radius: 2px;
+  border: 1px solid black;
+  font-family: 'Rubik', sans-serif;
+}
+
+.ingredient-details {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  font-family: 'Inter Tight', sans-serif;
+  justify-content: left;
+}
+
+.ingredient-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 25px;
+}
+
+/* .delete-btn {
+  background-color: red;
+}
+
+.edit-btn {
+  background-color: yellow;
+} */
 
 /* INGREDIENT CARD IMAGE  */
 .ing-img {
   height: 100px;
-  width: 100px;
+  width: 85px;
+  margin: 5px 0px 5px 20px;
+}
+
+/* INGREDIENT CARD EXPIRING SOON STYLING */
+.expires-soon {
+  color: red;
 }
 
 /* RECIPE PAGE CONTAINER  */
@@ -89,12 +152,154 @@ body {
   flex-direction: row;
 }
 
+.title-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 45px;
+}
+
 /* RECIPE PAGE PHOTO/INGREDIENTS DIV  */
 .photo-ing-cont {
   display: flex;
   flex-direction: column;
 }
 
+.recipe-photo {
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.recipe-title-info-cont {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0px 10px 0px;
+}
+
+.recipe-info-text {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+}
+
+.instruction-text {
+  padding: 20px;
+  margin: auto;
+  align-items: center;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+}
+
+/* INGREDIENT CARD - PANTRY INGREDIENTS */
+.ingredient-card {
+  border-radius: 1px;
+  border: 1px solid black;
+  margin: 2px;
+}
+
 .line-break {
   white-space: pre-line;
+}
+
+/* RECIPE INGREDIENT CONTAINER  */
+.recipe-ingredient-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 700px;
+  width: 1200px;
+  overflow-y:auto;
+  margin: auto;
+  border: 4px solid #ff5757;
+  padding: 10px;
+  box-shadow: 8px 8px #ff5757;
+  background-color: #fffcee;
+}
+
+.recipe-instructions {
+  height: 700px;
+  width: 700px;
+  overflow-y: auto;
+  border: 4px solid #ff5757;
+  padding: 10px;
+  box-shadow: 8px 8px #ff5757;
+  background-color: #fffcee;
+  margin: 0px 0px 20px 50px;
+}
+
+.photo-ing-cont {
+  max-width: 500px;
+}
+
+.recipe-btn {
+  background-color: #ff5757;
+  border-radius: 25px 25px 0px 0px;
+  margin: 10px 0px 0px 20px;
+  border: 0px;
+  font-family: 'DM Serif Display', serif;
+  font-style:italic;
+  font-size: 20px;
+  color: white;
+}
+
+.recipe-btn-top {
+    background-color: #ff5757;
+    border-radius: 25px 25px 0px 0px;
+    margin: 10px 20px 0px 90px;
+    border: 0px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: white; 
+}
+
+.search-bar-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-btn {
+  background-color: #b22020;
+  height: 50px;
+  margin: auto;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+}
+
+.search-bar {
+  font-family: 'Rubik', sans-serif;
+}
+
+.recipe-header {
+  font-family: 'DM Serif Display', serif;
+  font-size: 75px;
+  color:#b22020;
+  margin: 10px;
+}
+
+.pantry-header {
+  display: flex;
+  flex-direction: row;
+}
+
+/* RECIPE CARD */
+
+.recipe-card {
+  border: 1px solid black;
+  border-radius: 0px;
+  margin: 10px;
+}
+
+.recipe-card-img {
+  max-height: 300px;
+  object-fit: cover;
+  border-bottom: 1px solid black;
+  border-radius: 0px;
+}
+
+.recipe-title-btn {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color:#b22020;
+}
+
+.recipe-card-description {
+  font-family: 'Rubik', sans-serif;
+  font-size: 13px;
 }

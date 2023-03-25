@@ -15,6 +15,7 @@ const initialState = {
   id: 0,
   photo: '',
   unit: '',
+  expiry: '',
 };
 
 const initialStateS = 0;
@@ -47,7 +48,7 @@ export default function IngredientForm({
     if (obj.firebaseKey) {
       formInput.amount = Number(formInput.amount);
       updateIngredient(formInput);
-      router.replace('/pantry');
+      afterSubmit();
       handleClose();
     } else {
       getSpoonIngredient(ingredientSelect, formInput.amount, formInput.unit).then((data) => {
@@ -58,6 +59,7 @@ export default function IngredientForm({
           photo: `https://spoonacular.com/cdn/ingredients_100x100/${data.image}`,
           amount: data.amount,
           uid: user.uid,
+          expiry: formInput.expiry,
         };
         createIngredient(payload).then(({ name }) => {
           const patchPayload = { firebaseKey: name };
@@ -97,22 +99,40 @@ export default function IngredientForm({
             required
           />
         </FloatingLabel>
-        <Form.Select
-          aria-label="Default select example"
-          onChange={handleChange}
-          name="unit"
-          value={formInput.unit}
-          required
+        <FloatingLabel
+          controlId="floatingInput1"
+          label="Unit"
+          className="mb-3"
         >
-          <option>SELECT UNIT</option>
-          <option value="">none</option>
-          <option value="grams">grams</option>
-          <option value="ounces">ounces</option>
-          <option value="mL">milliliters</option>
-          <option value="tsp">teaspoon</option>
-          <option value="tbsp">tablespoon</option>
-          <option value="cup">cup</option>
-        </Form.Select>
+          <Form.Select
+            aria-label="Default select example"
+            onChange={handleChange}
+            name="unit"
+            value={formInput.unit}
+            required
+          >
+            <option>Select Unit</option>
+            <option value="">none</option>
+            <option value="grams">grams</option>
+            <option value="ounces">ounces</option>
+            <option value="mL">milliliters</option>
+            <option value="tsp">teaspoon</option>
+            <option value="tbsp">tablespoon</option>
+            <option value="cup">cup</option>
+          </Form.Select>
+        </FloatingLabel>
+        <FloatingLabel
+          controlId="floatingInput1"
+          label="Expiration Date"
+          className="mb-3"
+        >
+          <Form.Control
+            type="date"
+            name="expiry"
+            value={formInput.expiry}
+            onChange={handleChange}
+          />
+        </FloatingLabel>
         <Button type="submit" variant="outline-dark" className="m-2 text-color-drkblu">{obj.firebaseKey ? 'Update' : 'Create'}</Button>
       </Form>
     </div>
@@ -128,6 +148,7 @@ IngredientForm.propTypes = {
     photo: PropTypes.string,
     uid: PropTypes.string,
     unit: PropTypes.string,
+    expiry: PropTypes.string,
   }),
   select: PropTypes.number,
   handleClose: PropTypes.func.isRequired,

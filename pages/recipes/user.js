@@ -23,6 +23,7 @@ function UserRecipes() {
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
     >
+      <h1 className="recipe-header">Your Recipes</h1>
       <UserRecipeSearchBar />
       <div className="d-flex flex-wrap">
         {/* MAP OVER RECIPE CARDS - RECIPECARD COMPONENT */}

@@ -30,14 +30,17 @@ export default function ViewPantry() {
 
   return (
     <div>
-      <div>
-        <Button variant="primary" onClick={handleClick}>Add Pantry Ingredient</Button><NewIngredient afterSubmit={getAllIngredients} show={showIngredientModal} handleClose={handleCloseBtn} />
+      <div className="pantry-header">
+        <h1 className="recipe-header">Your Pantry</h1>
+        <Button variant="dark" className="add-pantry-ingredient-btn" onClick={handleClick}>+ Add Ingredient</Button><NewIngredient afterSubmit={getAllIngredients} show={showIngredientModal} handleClose={handleCloseBtn} />
       </div>
-      <div className="ingredient-container">
-        {/* MAP OVER INGREDIENT CARDS - INGREDIENT COMPONENT */}
-        {ingredients.map((ingredient) => (
-          <IngredientCard key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllIngredients} />
-        ))}
+      <div className="view-pantry-container">
+        <div className="ingredient-container">
+          {/* MAP OVER INGREDIENT CARDS - INGREDIENT COMPONENT */}
+          {ingredients.map((ingredient) => (
+            <IngredientCard key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllIngredients} />
+          ))}
+        </div>
       </div>
     </div>
   );
