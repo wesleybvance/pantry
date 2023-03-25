@@ -12,6 +12,9 @@ const initialState = {
   description: '',
   instructions: '',
   photo: '',
+  servings: '',
+  time: 0,
+  source: '',
   isPublic: false,
 };
 
@@ -86,6 +89,34 @@ export default function RecipeForm({ obj }) {
             required
           />
         </FloatingLabel>
+        <div className="">Servings</div>
+        <FloatingLabel
+          controlId="floatingInput3"
+          label="Servings"
+          className="mb-3"
+        >
+          <Form.Control
+            type="text"
+            placeholder="Recipe Source"
+            name="source"
+            value={formInput.servings}
+            onChange={handleChange}
+          />
+        </FloatingLabel>
+        <div className="">Total Cook Time</div>
+        <FloatingLabel
+          controlId="floatingInput3"
+          label="Minutes"
+          className="mb-3"
+        >
+          <Form.Control
+            type="number"
+            placeholder="Cook Time"
+            name="time"
+            value={formInput.time}
+            onChange={handleChange}
+          />
+        </FloatingLabel>
         <div className="">Instructions</div>
         <FloatingLabel
           controlId="floatingInput2"
@@ -117,6 +148,20 @@ export default function RecipeForm({ obj }) {
             value={formInput.photo}
             onChange={handleChange}
             required
+          />
+        </FloatingLabel>
+        <div className="">Recipe URL</div>
+        <FloatingLabel
+          controlId="floatingInput3"
+          label="Recipe URL"
+          className="mb-3"
+        >
+          <Form.Control
+            type="url"
+            placeholder="Recipe Source"
+            name="source"
+            value={formInput.source}
+            onChange={handleChange}
           />
         </FloatingLabel>
         <Form.Check

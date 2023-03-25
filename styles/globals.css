@@ -44,7 +44,7 @@ body {
 
 .nav-text {
   font-family:'Courier New', Courier, monospace;
-  font-size: 18px;
+  font-size: 22px;
   color: #ff5757;
   margin: 30px;
 }
@@ -57,9 +57,10 @@ body {
 .ingredient-container {
   display: flex;
   flex-direction: column;
-  /* height: 700px; */
+  flex-wrap: nowrap;
+  height: 700px;
   max-width: 520px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* CONTAINER WITH INGREDIENT DETAILS  */
