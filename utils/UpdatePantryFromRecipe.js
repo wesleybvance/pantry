@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import { getIngredientsByUID, updateIngredient } from '../api/ingredientsData';
 import { viewRecipeDetails } from '../api/mergedData';
 import { useAuth } from './context/authContext';
-import convertUnitsPantryUpdate from './unitConversion';
+import convertUnitsPantryUpdate from './UnitConversion';
 
 export default function UpdatePantryFromRecipe({ recipeId }) {
   const { user } = useAuth();
