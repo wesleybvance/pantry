@@ -48,7 +48,7 @@ export default function RecipeIngredientForm({
     if (obj.firebaseKey) {
       formInput.amount = Number(formInput.amount);
       updateRecipeIngredient(formInput);
-      router.replace(`/recipes/${obj.recipeId}`);
+      afterSubmit();
       handleClose();
     } else {
       getSpoonIngredient(ingredientSelect, formInput.amount, formInput.unit).then((data) => {
@@ -91,29 +91,31 @@ export default function RecipeIngredientForm({
         >
           <Form.Control
             type="number"
-            placeholder="Amount"
+            placeholder=""
             name="amount"
             value={Number(formInput.amount)}
             onChange={handleChange}
             required
           />
         </FloatingLabel>
-        <Form.Select
-          aria-label="Default select example"
-          onChange={handleChange}
-          name="unit"
-          value={formInput.unit}
-          required
-        >
-          <option>SELECT UNIT</option>
-          <option value="">none</option>
-          <option value="grams">grams</option>
-          <option value="ounces">ounces</option>
-          <option value="mL">milliliters</option>
-          <option value="tsp">teaspoon</option>
-          <option value="tbsp">tablespoon</option>
-          <option value="cup">cup</option>
-        </Form.Select>
+        <FloatingLabel controlId="floatingSelect" label="Unit">
+          <Form.Select
+            aria-label="Default select example"
+            onChange={handleChange}
+            name="unit"
+            value={formInput.unit}
+            required
+          >
+            <option>SELECT UNIT</option>
+            <option value="">none</option>
+            <option value="grams">grams</option>
+            <option value="ounces">ounces</option>
+            <option value="mL">milliliters</option>
+            <option value="tsp">teaspoon</option>
+            <option value="tbsp">tablespoon</option>
+            <option value="cup">cup</option>
+          </Form.Select>
+        </FloatingLabel>
         <Button type="submit" variant="outline-dark" className="m-2 text-color-drkblu">{obj.firebaseKey ? 'Update' : 'Create'}</Button>
       </Form>
     </div>

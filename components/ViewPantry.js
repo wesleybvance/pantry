@@ -38,7 +38,7 @@ export default function ViewPantry() {
         <div className="ingredient-container">
           {/* MAP OVER INGREDIENT CARDS - INGREDIENT COMPONENT */}
           {ingredients.map((ingredient) => (
-            <IngredientCard key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllIngredients} />
+            <IngredientCard afterSubmit={getAllIngredients} key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllIngredients} />
           ))}
         </div>
       </div>

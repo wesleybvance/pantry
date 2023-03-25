@@ -74,11 +74,12 @@ export default function IngredientForm({
 
   return (
     <div className="board-form-container">
-      <Form onSubmit={handleSubmit} className="text-color-drkblu">
+      <Form onSubmit={handleSubmit} className="text-color-drkblu modal-input">
         <div className="mt-5" />
         {obj.firebaseKey ? (
           <><Form.Control
             type="text"
+            className="modal-input"
             placeholder={formInput.name}
             aria-label="Disabled input example"
             readOnly
@@ -92,22 +93,20 @@ export default function IngredientForm({
         >
           <Form.Control
             type="number"
-            placeholder="Amount"
+            placeholder=""
             name="amount"
             value={Number(formInput.amount)}
             onChange={handleChange}
             required
+            className="modal-input"
           />
         </FloatingLabel>
-        <FloatingLabel
-          controlId="floatingInput1"
-          label="Unit"
-          className="mb-3"
-        >
+        <FloatingLabel controlId="floatingSelect" label="Unit">
           <Form.Select
             aria-label="Default select example"
             onChange={handleChange}
             name="unit"
+            className="modal-input"
             value={formInput.unit}
             required
           >
@@ -128,6 +127,7 @@ export default function IngredientForm({
         >
           <Form.Control
             type="date"
+            className="modal-input"
             name="expiry"
             value={formInput.expiry}
             onChange={handleChange}
