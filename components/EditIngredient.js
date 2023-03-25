@@ -4,7 +4,9 @@ import Modal from 'react-bootstrap/Modal';
 import IngredientForm from './forms/IngredientForm';
 
 // EDIT INGREDIENT MODAL - includes AddIngredientForm, Search/Select Ingredient from Spoonacular Component
-export default function EditIngredient({ ingObj, handleClose, show }) {
+export default function EditIngredient({
+  ingObj, handleClose, show, afterSubmit,
+}) {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -21,7 +23,7 @@ export default function EditIngredient({ ingObj, handleClose, show }) {
         </Modal.Header>
 
         <Modal.Body>
-          <IngredientForm handleClose={handleSubmitClose} onSubmit={handleSubmit} obj={ingObj} />
+          <IngredientForm afterSubmit={afterSubmit} handleClose={handleSubmitClose} onSubmit={handleSubmit} obj={ingObj} />
         </Modal.Body>
       </Modal.Dialog>
     </Modal>
@@ -40,4 +42,9 @@ EditIngredient.propTypes = {
   }).isRequired,
   handleClose: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
+  afterSubmit: PropTypes.func,
+};
+
+EditIngredient.defaultProps = {
+  afterSubmit: () => {},
 };

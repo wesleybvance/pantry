@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { getSpoonIngredients } from '../api/recipeIngredientsData';
 import IngredientSelectOptions from './IngredientSelectOptions';
 
@@ -49,8 +49,9 @@ export default function SelectIngredient({ handleIngredientId, selection }) {
   };
   return (
     <div>
-      <Form id="searchBar" onSubmit={handleSubmit}>
+      <Form className="modal-input select-form" id="searchBar" onSubmit={handleSubmit}>
         <input className="form-control" type="text" placeholder="Search..." onChange={handleSearchChange} onSubmit={handleSubmit} value={searchInput} style={{ width: '300px', height: '40px' }} />
+        <Button className="select-ing-btn" variant="dark">go</Button>
       </Form>
       <Form.Select aria-label="Default select example" onChange={handleSelectChange} onSubmit={handleSubmit} required>
         <option>Select Ingredient</option>

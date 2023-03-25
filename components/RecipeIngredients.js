@@ -42,7 +42,7 @@ export default function RecipeIngredients() {
       <div className="recipe-ingredient-container">
         {/* MAP OVER INGREDIENT CARDS - RECIPE INGREDIENT COMPONENT */}
         {recipeDetails.recipeIngredients?.map((ingredient) => (
-          <RecipeIngredientCard key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllRecipeIngredients} />
+          <RecipeIngredientCard afterSubmit={getAllRecipeDetails} key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllRecipeIngredients} />
         ))}
       </div>
     </div>

@@ -10,7 +10,7 @@ import { getIngredientsByUID } from '../api/ingredientsData';
 import CompareRP from '../utils/CompareRP';
 import NoMatchRP from '../utils/NoMatchRP';
 
-export default function RecipeIngredientCard({ ingredientObj, onUpdate }) {
+export default function RecipeIngredientCard({ ingredientObj, onUpdate, afterSubmit }) {
   const [showIngredientModal, setShowIngredientModal] = useState(false);
   const [recipe, setRecipe] = useState({});
   const { user } = useAuth();
@@ -64,7 +64,7 @@ export default function RecipeIngredientCard({ ingredientObj, onUpdate }) {
         {recipe.uid === user.uid ? (
           <div className="ing-btn-cont">
             <Button className="ing-btn edit-btn" variant="light" onClick={handleClick}>EDIT</Button>
-            <EditRecipeIngredient ingObj={ingredientObj} show={showIngredientModal} handleClose={handleCloseBtn} />
+            <EditRecipeIngredient afterSubmit={afterSubmit} ingObj={ingredientObj} show={showIngredientModal} handleClose={handleCloseBtn} />
             <Button className="ing-btn edit-btn" variant="light" onClick={deleteIngredientCard}>DELETE</Button>
           </div>
         ) : ''}
@@ -84,4 +84,9 @@ RecipeIngredientCard.propTypes = {
     id: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
+  afterSubmit: PropTypes.func,
+};
+
+RecipeIngredientCard.defaultProps = {
+  afterSubmit: () => {},
 };
