@@ -18,16 +18,49 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: #fcfcfc;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+/* NAVBAR  */
+.nav-bar {
+  background-color: #fffcee;
+  border-bottom: #ff5757 solid 10px;
+  border-bottom-style: dotted;
+  border: 4px solid #ff5757;
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 8px 8px #ff5757;
+}
+
+.sign-in-btn {
+  border-radius: 1px;
+  padding: 20px;
+  margin: 0px 30px 0px 0px;
+}
+
+.nav-text {
+  font-family:'Courier New', Courier, monospace;
+  font-size: 22px;
+  color: #ff5757;
+  margin: 30px;
+}
+
+.profile-photo {
+  border-radius: 50%;
 }
 
 /* CONTAINER WITH SCROLL FOR INGREDIENT CARDS  */
 .ingredient-container {
   display: flex;
   flex-direction: column;
-  /* height: 700px; */
+  flex-wrap: nowrap;
+  height: 700px;
   max-width: 520px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* CONTAINER WITH INGREDIENT DETAILS  */
@@ -60,4 +93,8 @@ body {
 .photo-ing-cont {
   display: flex;
   flex-direction: column;
+}
+
+.line-break {
+  white-space: pre-line;
 }

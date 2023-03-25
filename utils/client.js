@@ -11,6 +11,7 @@ const clientCredentials = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
   databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
   spoonApiKey: process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
+  admin: process.env.NEXT_PUBLIC_ADMIN_USER,
 };
 
 if (!firebase.apps.length) {

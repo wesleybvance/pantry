@@ -33,7 +33,7 @@ export default function ViewPantry() {
       <div>
         <Button variant="primary" onClick={handleClick}>Add Pantry Ingredient</Button><NewIngredient afterSubmit={getAllIngredients} show={showIngredientModal} handleClose={handleCloseBtn} />
       </div>
-      <div className="d-flex flex-wrap ingredient-container">
+      <div className="ingredient-container">
         {/* MAP OVER INGREDIENT CARDS - INGREDIENT COMPONENT */}
         {ingredients.map((ingredient) => (
           <IngredientCard key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllIngredients} />
