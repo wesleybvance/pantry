@@ -46,20 +46,22 @@ export default function RecipeIngredientCard({ ingredientObj, onUpdate, afterSub
   return (
     <Card className="ingredient-card">
       <div className="ingredient-info">
-        <div>
-          <Card.Img className="ing-img" src={ingredientObj.photo} />
-        </div>
-        <div>
-          <Card.Body>
-            <Card.Title className="ingredient-title">{ingredientObj.name}
-              {pantryIngredients?.map((ingredient) => <CompareRP key={ingredient.firebaseKey} ingredient={ingredient} recipeIngredientObj={ingredientObj} />)}
-              {ingredientObj.id === 14412 ? (<h5>🟢</h5>) : ''}
-              <NoMatchRP key={ingredientObj.firebaseKey} recipeIngredient={ingredientObj} pantryIngredients={pantryIngredients} />
-            </Card.Title>
-            <Card.Text className="ingredient-details">
-              {ingredientObj.amount} {ingredientObj.unit}
-            </Card.Text>
-          </Card.Body>
+        <div className="ing-photo-text">
+          <div>
+            <Card.Img className="ing-img" src={ingredientObj.photo} />
+          </div>
+          <div>
+            <Card.Body>
+              <Card.Title className="ingredient-title">{ingredientObj.name}
+                {pantryIngredients?.map((ingredient) => <CompareRP key={ingredient.firebaseKey} ingredient={ingredient} recipeIngredientObj={ingredientObj} />)}
+                {ingredientObj.id === 14412 ? (<h5>🟢</h5>) : ''}
+                <NoMatchRP key={ingredientObj.firebaseKey} recipeIngredient={ingredientObj} pantryIngredients={pantryIngredients} />
+              </Card.Title>
+              <Card.Text className="ingredient-details">
+                {ingredientObj.amount} {ingredientObj.unit}
+              </Card.Text>
+            </Card.Body>
+          </div>
         </div>
         {recipe.uid === user.uid ? (
           <div className="ing-btn-cont">
