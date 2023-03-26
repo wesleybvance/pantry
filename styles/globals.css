@@ -122,6 +122,11 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
+.ing-photo-text {
+  display: flex;
+  flex-direction: row;
+}
+
 .ingredient-details {
   display: flex;
   flex-direction: column;

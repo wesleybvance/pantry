@@ -33,17 +33,19 @@ export default function IngredientCard({ ingredientObj, onUpdate, afterSubmit })
   return (
     <Card className="ingredient-card">
       <div className="ingredient-info">
-        <div>
-          <Card.Img className="ing-img" src={ingredientObj.photo} />
-        </div>
-        <div>
-          <Card.Body>
-            <Card.Title className="ingredient-title">{ingredientObj.name}</Card.Title>
-            <Card.Text className="ingredient-details">
-              <div>{ingredientObj.amount} {ingredientObj.unit}</div>
-              <div className={isWithinWeek(ingredientObj.expiry) ? 'expires-soon' : ''}>{ingredientObj.expiry ? 'expires ' : ''}{ingredientObj.expiry ? (formatDate(ingredientObj.expiry)) : ''}</div>
-            </Card.Text>
-          </Card.Body>
+        <div className="ing-photo-text">
+          <div>
+            <Card.Img className="ing-img" src={ingredientObj.photo} />
+          </div>
+          <div>
+            <Card.Body>
+              <Card.Title className="ingredient-title">{ingredientObj.name}</Card.Title>
+              <Card.Text className="ingredient-details">
+                <div>{ingredientObj.amount} {ingredientObj.unit}</div>
+                <div className={isWithinWeek(ingredientObj.expiry) ? 'expires-soon' : ''}>{ingredientObj.expiry ? 'expires ' : ''}{ingredientObj.expiry ? (formatDate(ingredientObj.expiry)) : ''}</div>
+              </Card.Text>
+            </Card.Body>
+          </div>
         </div>
         <div className="ing-btn-cont">
           <Button className="ing-btn edit-btn" variant="light" onClick={handleClick}>EDIT</Button>
