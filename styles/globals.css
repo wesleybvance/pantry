@@ -97,6 +97,7 @@ body {
   border-radius: 1px;
   border: 1px solid black;
   margin: 2px;
+  width: 500px;
 }
 
 .ingredient-info {
@@ -131,7 +132,7 @@ body {
 
 .ingredient-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 /* .delete-btn {
@@ -260,16 +261,23 @@ body {
   .recipe-photo {
     max-width: 400px;
   }
-  /* .ingredient-info {
-    max-width: 380px;
-  } */
+  .ingredient-info {
+    max-width: 350px;
+  }
   .ingredient-card {
-    max-width: 380px;
+    max-width: 350px;
+  }
+  .ingredient-title {
+    font-size: 19px;
+  }
+  .ingredient-details {
+    font-size: 12px;
   }
 }
 
 .recipe-photo {
   width: 500px;
+  margin: 15px;
 }
 
 .recipe-card-cont {
