@@ -50,7 +50,7 @@ export default function RecipeIngredientForm({
       updateRecipeIngredient(formInput);
       afterSubmit();
       handleClose();
-    } else if (!select) {
+    } else if (!ingredientSelect) {
       window.confirm('Please select an ingredient.');
     } else {
       getSpoonIngredient(ingredientSelect, formInput.amount, formInput.unit).then((data) => {
