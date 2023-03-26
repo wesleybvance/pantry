@@ -25,7 +25,7 @@ function UserRecipes() {
     >
       <h1 className="recipe-header">Your Recipes</h1>
       <UserRecipeSearchBar />
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap recipe-card-cont">
         {/* MAP OVER RECIPE CARDS - RECIPECARD COMPONENT */}
         {recipes.map((recipe) => (
           <RecipeCard key={recipe.firebaseKey} recipeObj={recipe} onUpdate={getAllUserRecipes} />
