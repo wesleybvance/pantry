@@ -29,7 +29,7 @@ function Home() {
       </Head>
       <h1 className="recipe-header">Public Recipes</h1>
       <PublicRecipeSearchBar />
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap recipe-card-cont">
         {/* MAP OVER RECIPE CARDS - RECIPECARD COMPONENT */}
         {recipes.map((recipe) => (
           <RecipeCard key={recipe.firebaseKey} recipeObj={recipe} onUpdate={getHomeRecipes} />
