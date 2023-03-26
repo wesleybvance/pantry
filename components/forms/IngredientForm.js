@@ -50,6 +50,8 @@ export default function IngredientForm({
       updateIngredient(formInput);
       afterSubmit();
       handleClose();
+    } else if (!select) {
+      window.confirm('Please select an ingredient.');
     } else {
       getSpoonIngredient(ingredientSelect, formInput.amount, formInput.unit).then((data) => {
         const payload = {
