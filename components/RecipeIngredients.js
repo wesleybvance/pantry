@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { Button } from 'react-bootstrap';
 import { viewRecipeDetails } from '../api/mergedData';
 import RecipeIngredientCard from './RecipeIngredientCard';
-import { getRecipeIngredientsByRecipeID } from '../api/recipeIngredientsData';
 import NewRecipeIngredient from './NewRecipeIngredient';
 import { useAuth } from '../utils/context/authContext';
 
@@ -28,10 +27,6 @@ export default function RecipeIngredients() {
     setShowIngredientModal(false);
   };
 
-  const getAllRecipeIngredients = () => {
-    getRecipeIngredientsByRecipeID(firebaseKey);
-  };
-
   useEffect(() => {
     getAllRecipeDetails(firebaseKey);
   }, [user]);
@@ -42,7 +37,7 @@ export default function RecipeIngredients() {
       <div className="recipe-ingredient-container">
         {/* MAP OVER INGREDIENT CARDS - RECIPE INGREDIENT COMPONENT */}
         {recipeDetails.recipeIngredients?.map((ingredient) => (
-          <RecipeIngredientCard afterSubmit={getAllRecipeDetails} key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllRecipeIngredients} />
+          <RecipeIngredientCard afterSubmit={getAllRecipeDetails} key={ingredient.firebaseKey} ingredientObj={ingredient} onUpdate={getAllRecipeDetails} />
         ))}
       </div>
     </div>
