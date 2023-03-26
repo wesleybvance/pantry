@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { getSingleRecipe } from '../api/recipeData';
 import RecipeIngredients from './RecipeIngredients';
@@ -38,7 +38,7 @@ export default function ViewRecipe({ firebaseKey }) {
 
       <div className="recipe-container">
         <div className="photo-ing-cont">
-          <img src={recipeInfo.photo} width="500px" className="recipe-photo" alt="recipePhoto" />
+          <Image src={recipeInfo.photo} className="recipe-photo" alt="recipePhoto" />
           <RecipeIngredients key={firebaseKey} firebaseKey={firebaseKey} />
         </div>
         <div>
