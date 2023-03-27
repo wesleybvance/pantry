@@ -243,8 +243,8 @@ body {
   }
 } */
 
-@media (max-width: 400px) {
-  /* apply styles when the screen size is 400px or smaller */
+@media (max-width: 500px) {
+  /* apply styles when the screen size is 500px or smaller */
   .recipe-ingredient-container {
     /* flex-wrap: wrap;
     height: 700px;
