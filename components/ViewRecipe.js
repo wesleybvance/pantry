@@ -19,6 +19,12 @@ export default function ViewRecipe({ firebaseKey }) {
     getSingleRecipe(firebaseKey).then(setRecipeInfo);
   };
 
+  const warnIng = () => {
+    if ((user.uid === recipeInfo.uid) && (recipeInfo.recipeIngredients)) {
+      window.confirm('Please add ingredients for this recipe.');
+    } else console.warn(recipeInfo.recipeIngredients);
+  };
+
   useEffect(() => {
     getRecipeInfo(firebaseKey);
   }, [firebaseKey]);
@@ -38,7 +44,9 @@ export default function ViewRecipe({ firebaseKey }) {
 
       <div className="recipe-container">
         <div className="photo-ing-cont">
-          <Image src={recipeInfo.photo} className="recipe-photo" alt="recipePhoto" />
+          <div className="recipe-photo-cont">
+            <Image src={recipeInfo.photo} className="recipe-photo" alt="recipePhoto" />
+          </div>
           <RecipeIngredients key={firebaseKey} firebaseKey={firebaseKey} />
         </div>
         <div>

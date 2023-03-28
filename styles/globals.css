@@ -180,6 +180,8 @@ body {
 .recipe-photo {
   border: 2px solid black;
   border-radius: 4px;
+  height: 700px;
+  object-fit: cover;
 }
 
 .recipe-title-info-cont {
@@ -204,6 +206,13 @@ body {
 .line-break {
   white-space: pre-line;
 }
+
+/* .recipe-photo-cont {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} */
 
 /* RECIPE INGREDIENT CONTAINER  */
 .recipe-ingredient-container {
@@ -335,7 +344,7 @@ body {
 .recipe-btn-top {
     background-color: #ff5757;
     border-radius: 25px 25px 0px 0px;
-    margin: 10px 20px 0px 90px;
+    margin: 10px 20px 0px 75px;
     border: 0px;
     font-family: 'DM Serif Display', serif;
     font-size: 20px;
