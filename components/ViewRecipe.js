@@ -27,6 +27,7 @@ export default function ViewRecipe({ firebaseKey }) {
 
   useEffect(() => {
     getRecipeInfo(firebaseKey);
+    warnIng();
   }, [firebaseKey]);
 
   return (
