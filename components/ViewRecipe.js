@@ -9,6 +9,7 @@ import { getSingleRecipe } from '../api/recipeData';
 import RecipeIngredients from './RecipeIngredients';
 import { useAuth } from '../utils/context/authContext';
 import UpdatePantryFromRecipe from '../utils/UpdatePantryFromRecipe';
+import { viewRecipeDetails } from '../api/mergedData';
 
 export default function ViewRecipe({ firebaseKey }) {
   const [recipeInfo, setRecipeInfo] = useState({});
@@ -17,12 +18,6 @@ export default function ViewRecipe({ firebaseKey }) {
 
   const getRecipeInfo = () => {
     getSingleRecipe(firebaseKey).then(setRecipeInfo);
-  };
-
-  const warnIng = () => {
-    if ((user.uid === recipeInfo.uid) && (recipeInfo.recipeIngredients)) {
-      window.confirm('Please add ingredients for this recipe.');
-    } else console.warn(recipeInfo.recipeIngredients);
   };
 
   useEffect(() => {
@@ -56,8 +51,8 @@ export default function ViewRecipe({ firebaseKey }) {
         </div>
         <div className="recipe-btn-instructions-cont">
           <div className="recipe-btns">
-            <Button variant="light" className="recipe-btn-top">Instructions</Button>
-            {recipeInfo.uid === user.uid ? (<Button className="recipe-btn" onClick={(e) => router.replace(`/recipes/edit/${recipeInfo.firebaseKey}`)} variant="dark">Edit Recipe</Button>) : ''}
+            <Button variant="danger" id="recipeBtnTop" className="recipe-btn-top" disabled>Instructions</Button>
+            {recipeInfo.uid === user.uid ? (<Button className="recipe-btn" onClick={(e) => router.replace(`/recipes/edit/${recipeInfo.firebaseKey}`)} variant="danger">Edit Recipe</Button>) : ''}
             {user ? (<UpdatePantryFromRecipe recipeId={firebaseKey} />) : ''}
           </div>
           <div className="recipe-instructions line-break">

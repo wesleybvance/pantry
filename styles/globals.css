@@ -344,11 +344,32 @@ body {
 .recipe-btn-top {
     background-color: #ff5757;
     border-radius: 25px 25px 0px 0px;
-    margin: 10px 20px 0px 75px;
+    margin: 10px 0px 0px 60px;
     border: 0px;
     font-family: 'DM Serif Display', serif;
     font-size: 20px;
     color: white; 
+}
+
+.recipe-btn-instructions-top {
+  background-color: #ff5757;
+  border-radius: 25px 25px 0px 0px;
+  margin: 10px 0px 0px 10px;
+  border: 0px;
+  height: 42px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: white;
+}
+
+#recipeInstructionsBtn {
+  background-color: #ff5757;
+  opacity: 1;
+}
+
+#recipeBtnTop {
+  background-color: #ff5757;
+  opacity: 1;
 }
 
 .search-bar-container {
