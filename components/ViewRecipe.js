@@ -52,7 +52,7 @@ export default function ViewRecipe({ firebaseKey }) {
         <div className="recipe-btn-instructions-cont">
           <div className="recipe-btns">
             <Button variant="danger" id="recipeBtnTop" className="recipe-btn-top" disabled>Instructions</Button>
-            {recipeInfo.uid === user.uid ? (<Button className="recipe-btn" onClick={(e) => router.replace(`/recipes/edit/${recipeInfo.firebaseKey}`)} variant="dark">Edit Recipe</Button>) : ''}
+            {recipeInfo.uid === user.uid ? (<Button className="recipe-btn" onClick={(e) => router.replace(`/recipes/edit/${recipeInfo.firebaseKey}`)} variant="danger">Edit Recipe</Button>) : ''}
             {user ? (<UpdatePantryFromRecipe recipeId={firebaseKey} />) : ''}
           </div>
           <div className="recipe-instructions line-break">

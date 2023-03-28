@@ -13,7 +13,6 @@ export default function UpdatePantryFromRecipe({ recipeId }) {
   const [recipeDetails, setRecipeDetails] = useState({});
 
   useEffect(() => {
-    console.warn(recipeId);
     getIngredientsByUID(user.uid).then(setPantryIngredients);
     viewRecipeDetails(recipeId).then(setRecipeDetails);
   }, [user]);
@@ -50,7 +49,7 @@ export default function UpdatePantryFromRecipe({ recipeId }) {
   };
 
   return (
-    <>{(hasMatchingIds()) ? (<Button className="recipe-btn" onClick={handleClick}>Make This Recipe</Button>) : ('')}</>
+    <>{(hasMatchingIds()) ? (<Button className="recipe-btn" variant="danger" onClick={handleClick}>Make This Recipe</Button>) : ('')}</>
   );
 }
 
