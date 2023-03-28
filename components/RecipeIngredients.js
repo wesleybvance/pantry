@@ -27,20 +27,20 @@ export default function RecipeIngredients() {
     setShowIngredientModal(false);
   };
 
-  const warnIng = (recipeInfo) => {
-    if ((user.uid === recipeInfo.uid) && (recipeInfo.recipeIngredients === [])) {
-      window.confirm('Please add ingredients for this recipe.');
-    } else console.warn(recipeInfo.recipeIngredients);
-  };
+  // const warnIng = (recipeInfo) => {
+  //   if ((user.uid === recipeInfo.uid) && (recipeInfo.recipeIngredients === [])) {
+  //     window.confirm('Please add ingredients for this recipe.');
+  //   } else console.warn(recipeInfo.recipeIngredients);
+  // };
 
   useEffect(() => {
     getAllRecipeDetails(firebaseKey);
-    viewRecipeDetails(firebaseKey).then((recipeInfo) => warnIng(recipeInfo));
+    // viewRecipeDetails(firebaseKey).then((recipeInfo) => warnIng(recipeInfo));
   }, [user]);
 
   return (
     <div>
-      {((user.uid === recipeDetails?.uid) && (!recipeDetails?.recipeIngredients)) ? (window.confirm('Please add ingredients for this recipe.')) : (console.warn('not working'))}
+      {/* {((user.uid === recipeDetails?.uid) && (!recipeDetails?.recipeIngredients)) ? (window.confirm('Please add ingredients for this recipe.')) : (console.warn('not working'))} */}
       <Button className="recipe-btn-instructions-top" id="recipeInstructionsBtn" disabled>Ingredients</Button>
       {user.uid === recipeDetails.uid ? (<><Button className="recipe-btn" variant="danger" onClick={handleClick}>Add Recipe Ingredient</Button><NewRecipeIngredient afterSubmit={getAllRecipeDetails} show={showIngredientModal} handleClose={handleCloseBtn} /></>) : ''}
       <div className="recipe-ingredient-container">
