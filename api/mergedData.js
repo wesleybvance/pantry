@@ -39,9 +39,17 @@ const getUserAndPublicRecipes = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getAllRecipeDetails = (uid) => new Promise((resolve, reject) => {
+  getUserAndPublicRecipes(uid).then((recipeArray) => {
+    const addRecipeInfo = recipeArray.map((result) => viewRecipeDetails(result.firebaseKey));
+    Promise.all(addRecipeInfo).then(resolve);
+  }).catch((error) => reject(error));
+});
+
 export {
   deleteRecipeIngredients,
   viewRecipeDetails,
   viewRecipeIngredientDetails,
   getUserAndPublicRecipes,
+  getAllRecipeDetails,
 };

@@ -1,31 +1,35 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Head from 'next/head';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { getIngredientsByUID } from '../../../api/ingredientsData';
-import { getUserAndPublicRecipes, viewRecipeDetails } from '../../../api/mergedData';
+import { getAllRecipeDetails } from '../../../api/mergedData';
 import RecipeCard from '../../../components/RecipeCard';
-import { signOut } from '../../../utils/auth';
 import { useAuth } from '../../../utils/context/authContext';
 
 export default function Readytocook() {
   const { user } = useAuth();
-  const [readyRecipes, setReadyRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [pantryIngredients, setPantryIngredients] = useState([]);
+  // const [recipesToCook, setRecipesToCook] = useState([]);
 
-  const checkRecipe = (recipeId) => {
-    viewRecipeDetails(recipeId).then((recipeDetails) => {
-      const result = recipeDetails.recipeIngredients?.every((ringredient) => pantryIngredients?.some((pingredient) => pingredient.id === ringredient.id));
-      return result;
-    });
+  const checkRecipe = (recipeDetails) => {
+    const result = recipeDetails.recipeIngredients?.every((ringredient) => pantryIngredients?.some((pingredient) => pingredient.id === ringredient.id && pingredient.amount > 0));
+    return result;
   };
 
-  const getAllRecipesAvailable = () => {
-    getUserAndPublicRecipes(user.uid).then(setReadyRecipes);
+  const filterRecipesToCook = (recipeArray) => {
+    const newArr = recipeArray.filter((obj) => checkRecipe(obj));
+    return newArr;
+  };
+
+  const getRecipes = () => {
     getIngredientsByUID(user.uid).then(setPantryIngredients);
+    getAllRecipeDetails(user.uid).then(setRecipes);
   };
 
   useEffect(() => {
-    getAllRecipesAvailable();
+    getRecipes();
   }, [user]);
 
   return (
@@ -36,16 +40,12 @@ export default function Readytocook() {
         <title>Recipes to Cook Now</title>
       </Head>
 
+      <h1 className="recipe-header">Recipes Available To Cook Now</h1>
       <div className="d-flex flex-wrap recipe-card-cont">
-        {readyRecipes.filter((recipe) => checkRecipe(recipe.firebaseKey)).map((recipe) => (
-          <RecipeCard key={recipe.firebaseKey} recipeObj={recipe} onUpdate={getAllRecipesAvailable} />
-        ))}
+        {((filterRecipesToCook(recipes)).length) ? (filterRecipesToCook(recipes).map((recipe) => (
+          <RecipeCard key={recipe.firebaseKey} recipeObj={recipe} onUpdate={getRecipes} />
+        ))) : (<h3 className="update-text">There are currently no recipes you can make with the ingredients you have. <br /> <Link id="clickHere" href="/pantry">Click Here</Link> to add more ingredients to your pantry.</h3>)}
       </div>
-      {user ? (
-        <button className="btn btn-danger btn-lg copy-btn" type="button" onClick={signOut}>
-          Sign Out
-        </button>
-      ) : ''}
     </div>
   );
 }

@@ -27,15 +27,15 @@ export default function RecipeIngredients() {
     setShowIngredientModal(false);
   };
 
-  // const warnIng = (recipeInfo) => {
-  //   if ((user.uid === recipeInfo.uid) && (recipeInfo.recipeIngredients === [])) {
-  //     window.confirm('Please add ingredients for this recipe.');
-  //   } else console.warn(recipeInfo.recipeIngredients);
-  // };
+  const warnIng = (recipeInfo) => {
+    if ((user.uid === recipeInfo.uid) && (!recipeInfo.recipeIngredients.length)) {
+      window.confirm('Please add ingredients for this recipe.');
+    } else console.warn(recipeInfo.recipeIngredients);
+  };
 
   useEffect(() => {
     getAllRecipeDetails(firebaseKey);
-    // viewRecipeDetails(firebaseKey).then((recipeInfo) => warnIng(recipeInfo));
+    viewRecipeDetails(firebaseKey).then((recipeInfo) => warnIng(recipeInfo));
   }, [user]);
 
   return (

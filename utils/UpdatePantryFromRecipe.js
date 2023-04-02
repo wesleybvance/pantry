@@ -44,7 +44,7 @@ export default function UpdatePantryFromRecipe({ recipeId }) {
   };
 
   const hasMatchingIds = () => {
-    const result = recipeDetails.recipeIngredients?.every((ringredient) => pantryIngredients?.some((pingredient) => pingredient.id === ringredient.id));
+    const result = recipeDetails.recipeIngredients?.every((ringredient) => pantryIngredients?.some((pingredient) => pingredient.id === ringredient.id && pingredient.amount > 0));
     return result;
   };
 
