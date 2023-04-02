@@ -31,6 +31,7 @@ export default function NavBar() {
             <Nav.Link className="nav-text" href="/">public recipes</Nav.Link>
             <Nav.Link className="nav-text" href="/recipes/user">my recipes</Nav.Link>
             <Nav.Link className="nav-text" href="/recipes/new">new recipe</Nav.Link>
+            <Nav.Link className="nav-text" href="/recipes/user/readytocook">cook now</Nav.Link>
           </Nav>
           <Image src={user.photoURL} alt="userURL" width="70" height="70" className="profile-photo" id="navbarprofile" onClick={signOutNavBar} />
         </Navbar.Collapse>

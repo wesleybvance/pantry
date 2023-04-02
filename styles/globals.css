@@ -403,6 +403,16 @@ body {
   margin: 10px;
 }
 
+.update-text {
+  font-family: 'DM Serif Display', serif;
+  margin: 10px;
+}
+
+#clickHere {
+  color: #b22020;
+  text-decoration: underline;
+}
+
 .pantry-header {
   display: flex;
   flex-direction: row;

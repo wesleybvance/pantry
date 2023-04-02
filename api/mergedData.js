@@ -1,5 +1,5 @@
 import {
-  deleteRecipe, getSingleRecipe,
+  deleteRecipe, getPublicRecipes, getSingleRecipe, getUserRecipes,
 } from './recipeData';
 import { deleteRecipeIngredient, getRecipeIngredientsByRecipeID, getSingleRecipeIngredient } from './recipeIngredientsData';
 
@@ -27,8 +27,29 @@ const viewRecipeIngredientDetails = (firebaseKey) => new Promise((resolve, rejec
   }).catch(reject);
 });
 
+const getUserAndPublicRecipes = (uid) => new Promise((resolve, reject) => {
+  Promise.all([getPublicRecipes(), getUserRecipes(uid)])
+    .then((data) => {
+      const array1 = (data[0]);
+      const array2 = (data[1]);
+      const newArray = array1.concat(array2);
+      const noDuplicateRecipes = newArray.filter((obj, index, self) => index === self.findIndex((r) => (r.firebaseKey === obj.firebaseKey)));
+      resolve(noDuplicateRecipes);
+    })
+    .catch((error) => reject(error));
+});
+
+const getAllRecipeDetails = (uid) => new Promise((resolve, reject) => {
+  getUserAndPublicRecipes(uid).then((recipeArray) => {
+    const addRecipeInfo = recipeArray.map((result) => viewRecipeDetails(result.firebaseKey));
+    Promise.all(addRecipeInfo).then(resolve);
+  }).catch((error) => reject(error));
+});
+
 export {
   deleteRecipeIngredients,
   viewRecipeDetails,
   viewRecipeIngredientDetails,
+  getUserAndPublicRecipes,
+  getAllRecipeDetails,
 };
