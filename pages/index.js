@@ -27,7 +27,7 @@ function Home() {
       <Head>
         <title>Pantry</title>
       </Head>
-      <h1 className="recipe-header">Public Recipes</h1>
+      <h1 className="recipe-header">All Recipes</h1>
       <PublicRecipeSearchBar />
       <div className="d-flex flex-wrap recipe-card-cont">
         {/* MAP OVER RECIPE CARDS - RECIPECARD COMPONENT */}

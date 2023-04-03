@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { getUserRecipes } from '../../api/recipeData';
 import RecipeCard from '../../components/RecipeCard';
@@ -23,6 +24,9 @@ function UserRecipes() {
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
     >
+      <Head>
+        <title>Your Recipes</title>
+      </Head>
       <h1 className="recipe-header">Your Recipes</h1>
       <UserRecipeSearchBar />
       <div className="d-flex flex-wrap recipe-card-cont">

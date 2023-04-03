@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Image } from 'react-bootstrap';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import { getSingleRecipe } from '../api/recipeData';
 import RecipeIngredients from './RecipeIngredients';
 import { useAuth } from '../utils/context/authContext';
@@ -26,6 +27,9 @@ export default function ViewRecipe({ firebaseKey }) {
 
   return (
     <div>
+      <Head>
+        <title>{recipeInfo.name}</title>
+      </Head>
       <div className="recipe-title-info-cont">
         <h1 className="title-name">{recipeInfo.name}</h1>
       </div>

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { getIngredientsByUID } from '../api/ingredientsData';
@@ -30,6 +31,9 @@ export default function ViewPantry() {
 
   return (
     <div>
+      <Head>
+        <title>Pantry Ingredients</title>
+      </Head>
       <div className="pantry-header">
         <h1 className="recipe-header">Your Pantry</h1>
         <Button variant="dark" className="add-pantry-ingredient-btn" onClick={handleClick}>+ Add Ingredient</Button><NewIngredient afterSubmit={getAllIngredients} show={showIngredientModal} handleClose={handleCloseBtn} />
