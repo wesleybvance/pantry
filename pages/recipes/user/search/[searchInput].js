@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getUserRecipes } from '../../../../api/recipeData';
@@ -27,6 +28,9 @@ export default function SearchResultUser() {
   }, [searchInput]);
   return (
     <div>
+      <Head>
+        <title>Recipe Search Results</title>
+      </Head>
       <div className="d-flex flex-wrap">
         {searchResults.map((obj) => (
           <RecipeCard key={obj.firebaseKey} recipeObj={obj} onUpdate={getRecipeSearchResults} />
