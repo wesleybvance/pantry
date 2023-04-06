@@ -50,11 +50,11 @@ body {
   margin: 30px;
 }
 
-.profile-photo {
+/* .profile-photo {
   border-radius: 50%;
   width: 80px;
   height: 80px;
-}
+} */
 
 /* CONTAINER WITH SCROLL FOR INGREDIENT CARDS  */
 .ingredient-container {
