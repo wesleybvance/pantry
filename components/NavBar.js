@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import {
-  Container, Nav, Navbar,
+  Container, Nav, Navbar, Button,
 } from 'react-bootstrap';
 import Image from 'next/image';
 import { signOut } from '../utils/auth';
@@ -33,7 +33,9 @@ export default function NavBar() {
             <Nav.Link className="nav-text" href="/recipes/new">new recipe</Nav.Link>
             <Nav.Link className="nav-text" href="/recipes/user/readytocook">cook now</Nav.Link>
           </Nav>
-          <Image src={user.photoURL} alt="userURL" width="70" height="70" className="profile-photo" id="navbarprofile" onClick={signOutNavBar} />
+          <div className="sign-out-container"><Image src={user.photoURL} alt="userURL" width="70" height="70" className="profile-photo" id="navbarprofile" />
+            <Button className="sign-out-btn-nav" variant="danger" onClick={signOutNavBar}>Sign Out</Button>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
