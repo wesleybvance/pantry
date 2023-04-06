@@ -18,7 +18,7 @@ export default function UserRecipeSearchBar() {
   return (
     <div className="search-bar-container">
       <Form onSubmit={handleSubmit} className="search-bar-cont">
-        <Form.Control className="form-control search-bar" type="text" placeholder="Search Public Recipes" onChange={handleChange} value={searchInput} />
+        <Form.Control className="form-control search-bar" type="text" placeholder="Search Your Recipes" onChange={handleChange} value={searchInput} />
         {/* <input className="form-control search-bar" type="text" placeholder="Search Your Recipes" onChange={handleChange} value={searchInput} /> */}
       </Form>
       <Button variant="light" className="search-btn" onClick={handleSubmit}>Search</Button>

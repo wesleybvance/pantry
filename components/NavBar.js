@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import {
   Container, Nav, Navbar,
 } from 'react-bootstrap';
+import { Button } from 'bootstrap';
 import Image from 'next/image';
 import { signOut } from '../utils/auth';
 import { useAuth } from '../utils/context/authContext';
@@ -33,7 +35,8 @@ export default function NavBar() {
             <Nav.Link className="nav-text" href="/recipes/new">new recipe</Nav.Link>
             <Nav.Link className="nav-text" href="/recipes/user/readytocook">cook now</Nav.Link>
           </Nav>
-          <Image src={user.photoURL} alt="userURL" width="70" height="70" className="profile-photo" id="navbarprofile" onClick={signOutNavBar} />
+          <img src={user.photoURL} alt="userURL" width="70" height="70" className="profile-photo" id="navbarprofile" />
+          <Button variant="danger">{signOutNavBar}</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
