@@ -457,3 +457,13 @@ body {
 .select-ing-btn {
   margin: auto;
 }
+
+.sign-out-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-out-btn-nav {
+  font-size: 12px;
+  margin: 10px 0px 0px 0px;
+}
