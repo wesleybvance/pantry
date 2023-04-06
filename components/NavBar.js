@@ -11,10 +11,13 @@ import logo from '../images/logo.png';
 export default function NavBar() {
   const { user } = useAuth();
   const signOutNavBar = () => {
+    console.warn(user.photoURL);
     if (window.confirm('Are you sure you want to sign out?')) {
       signOut();
     }
   };
+
+  const photo = user.photoURL;
 
   return (
     <Navbar expand="lg" variant="light" className="nav-bar">
@@ -33,7 +36,7 @@ export default function NavBar() {
             <Nav.Link className="nav-text" href="/recipes/new">new recipe</Nav.Link>
             <Nav.Link className="nav-text" href="/recipes/user/readytocook">cook now</Nav.Link>
           </Nav>
-          <div className="sign-out-container"><Image src={user.photoURL} alt="userURL" width="70" height="70" className="profile-photo" id="navbarprofile" />
+          <div className="sign-out-container"><Image src={photo} alt="userURL" width="70" height="70" className="profile-photo" id="navbarprofile" />
             <Button className="sign-out-btn-nav" variant="danger" onClick={signOutNavBar}>Sign Out</Button>
           </div>
         </Navbar.Collapse>
