@@ -17,8 +17,6 @@ export default function NavBar() {
     }
   };
 
-  const photo = user.photoURL;
-
   return (
     <Navbar expand="lg" variant="light" className="nav-bar">
       <Container fluid>
@@ -36,8 +34,8 @@ export default function NavBar() {
             <Nav.Link className="nav-text" href="/recipes/new">new recipe</Nav.Link>
             <Nav.Link className="nav-text" href="/recipes/user/readytocook">cook now</Nav.Link>
           </Nav>
-          <div className="sign-out-container"><Image src={photo} alt="userURL" width="70px" height="70px" id="navbarprofile" />
-            <Button className="sign-out-btn-nav" variant="danger" onClick={signOutNavBar}>Sign Out</Button>
+          <div className="sign-out-container">
+            <Button className="sign-out-btn-nav" variant="danger" onClick={signOutNavBar}>SIGN OUT</Button>
           </div>
         </Navbar.Collapse>
       </Container>

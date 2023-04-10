@@ -464,6 +464,7 @@ body {
 }
 
 .sign-out-btn-nav {
-  font-size: 12px;
-  margin: 10px 0px 0px 0px;
+  font-size: 13px;
+  margin: 10px 40px 0px 0px;
+  border-radius: 1px;
 }
